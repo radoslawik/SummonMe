@@ -3,3 +3,5 @@
 # exclude
 packages
 /.vs
+/SummonMe/bin
+/SummonMe/obj
