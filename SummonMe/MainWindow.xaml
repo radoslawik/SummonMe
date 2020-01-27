@@ -1,4 +1,5 @@
 ﻿<Window x:Class="SummonMe.MainWindow"
+        Icon="pack://application:,,,/Assets/icon.ico"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -15,24 +16,29 @@
         ResizeMode="NoResize"
         Title="MainWindow" 
         Height="600" 
-        Width="900">
+        Width="900"
+        >
+
+    <!-- WindowStyle="None" -->
 
     <Grid>
-        <StackPanel Margin="100" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox Margin="50 0" Text="{Binding SummonerName}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Summoner"/>
-            <TextBox Margin="50 0" Text="{Binding Region}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Region"/>
-            <Button x:Name="Button" Margin="25 0 25 300" Content="SHOW DATA" Click="Button_Click"/>
-        </StackPanel>
-        <StackPanel Margin="200" Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock Margin="20 15" Text="Wins" FontSize="15" Foreground="LightGray"/>
-                <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Wins}"/>
+        <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center">
+            <Image Source="pack://application:,,,/Assets/logo.png"/>
+            <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Height="40" Width="200" Margin="50 10 0 10" Text="{Binding SummonerName}" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Summoner"/>
+                <TextBox Height="40" Width="200" Margin="50 10 0 10" Text="{Binding Region}" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Region"/>
+                <Button Name="Search" Margin="50 10 0 10" VerticalAlignment="Top" Content="SHOW DATA" Click="Button_Click"/>
             </StackPanel>
-            <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock Margin="20 15" Text="Loses" FontSize="15" Foreground="LightGray"/>
-                <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
+            <StackPanel Margin="30" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                    <TextBlock Margin="20 15" Text="Wins" FontSize="15" Foreground="LightGray"/>
+                    <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Wins}"/>
+                </StackPanel>
+                <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                    <TextBlock Margin="20 15" Text="Loses" FontSize="15" Foreground="LightGray"/>
+                    <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
-        
     </Grid>
 </Window>
