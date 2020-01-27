@@ -14,7 +14,7 @@ namespace SummonMe.API
         {
         }
 
-        public Summoner GetSummoner(string name)
+        public SummonerDTO GetSummoner(string name)
         {
             string path = "summoner/v4/summoners/by-name/" + name;
 
@@ -23,7 +23,7 @@ namespace SummonMe.API
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<Summoner>(content);
+                return JsonConvert.DeserializeObject<SummonerDTO>(content);
             }
             else
             {

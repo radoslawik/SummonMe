@@ -8,10 +8,26 @@
         Title="MainWindow" Height="450" Width="800">
   
     <Grid>
-        <TextBox Text="{Binding SummonerName}" Margin="15" />
-        <TextBox Text="{Binding Region}" Margin="15" />
-        <TextBlock Text="{Binding Path=Level}" FontSize="80"/>
-        <TextBlock Text="{Binding Path=SummonerName}"/>
-        <Button x:Name="Button" Margin="15 50" Content="SHOW DATA" Click="Button_Click"/>
+        <TextBox Text="{Binding SummonerName}" Margin="70" Background="Pink"/>
+        <TextBox Text="{Binding Region}" Margin="140" Background="Green" />
+        <TextBox 
+                             Margin="30"     
+                             Width="100"
+                             Text="12461748617846127864"
+                             Name="Test" />
+        <TextBox 
+                             Margin="100"    
+                             Width="100" 
+                             Text="{Binding Path=Level}"
+                             Name="Level"
+                            Background="Orange"/>
+        <TextBox 
+                             Margin="0" 
+                             Width="200"
+                             Height="150" 
+                             Text="{Binding Path=SummonerName}"
+                             Name="SummonerName"
+                             Background="Blue"/>
+        <Button x:Name="Button" Margin="15 50" Height="100" Content="SHOW DATA" Click="Button_Click"/>
     </Grid>
 </Window>
