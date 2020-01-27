@@ -5,29 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SummonMe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-  
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize"
+        Title="MainWindow" 
+        Height="600" 
+        Width="900">
+
     <Grid>
-        <TextBox Text="{Binding SummonerName}" Margin="70" Background="Pink"/>
-        <TextBox Text="{Binding Region}" Margin="140" Background="Green" />
-        <TextBox 
-                             Margin="30"     
-                             Width="100"
-                             Text="12461748617846127864"
-                             Name="Test" />
-        <TextBox 
-                             Margin="100"    
-                             Width="100" 
-                             Text="{Binding Path=Level}"
-                             Name="Level"
-                            Background="Orange"/>
-        <TextBox 
-                             Margin="0" 
-                             Width="200"
-                             Height="150" 
-                             Text="{Binding Path=SummonerName}"
-                             Name="SummonerName"
-                             Background="Blue"/>
-        <Button x:Name="Button" Margin="15 50" Height="100" Content="SHOW DATA" Click="Button_Click"/>
+        <StackPanel Margin="100" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Margin="50 0" Text="{Binding SummonerName}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Summoner"/>
+            <TextBox Margin="50 0" Text="{Binding Region}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Region"/>
+            <Button x:Name="Button" Margin="25 0 25 300" Content="SHOW DATA" Click="Button_Click"/>
+        </StackPanel>
+        <StackPanel Margin="200" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Margin="20 15" Text="Wins" FontSize="15" Foreground="LightGray"/>
+                <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Wins}"/>
+            </StackPanel>
+            <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Margin="20 15" Text="Loses" FontSize="15" Foreground="LightGray"/>
+                <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
+            </StackPanel>
+        </StackPanel>
+        
     </Grid>
 </Window>

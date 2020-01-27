@@ -23,11 +23,11 @@ namespace SummonMe
     /// </summary>
     public partial class MainWindow : Window
     {
-        Profile viewProfile;
+        ViewManager viewProfile;
         public MainWindow()
         {
             
-            viewProfile = new Profile();
+            viewProfile = new ViewManager();
             InitializeComponent();
 
             this.DataContext = viewProfile;
@@ -35,11 +35,23 @@ namespace SummonMe
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SummonerHandler summoner_handler = new SummonerHandler("EUN1");
-            SummonerDTO summoner = summoner_handler.GetSummoner("mitr0vav0");
-            LeagueEntryHandler league_entry_handler = new LeagueEntryHandler("EUN1");
-            LeagueEntryDTO league_entry = league_entry_handler.GetLeagueEntry(summoner.Id).Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
+            if(string.IsNullOrEmpty(viewProfile.SummonerName) || string.IsNullOrEmpty(viewProfile.Region))
+            {
+                viewProfile.LeagueEntry = null;
+                Console.WriteLine("Provide correct summoner name and/or region");
+                return;
+            }
 
+            SummonerHandler summoner_handler = new SummonerHandler(viewProfile.Region);
+            SummonerDTO summoner = summoner_handler.GetSummoner(viewProfile.SummonerName);
+            LeagueEntryHandler league_entry_handler = new LeagueEntryHandler(viewProfile.Region);
+            LeagueEntryDTO league_entry = league_entry_handler.GetLeagueEntry(summoner.Id).Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
+            viewProfile.LeagueEntry = league_entry;
+
+            Console.WriteLine("summoner name, region");
+            Console.WriteLine(viewProfile.SummonerName);
+            Console.WriteLine(viewProfile.Region);
+            
             Console.WriteLine("name, level, revisiondate(seconds), special id");
             Console.WriteLine(summoner.Name);
             Console.WriteLine(summoner.SummonerLevel);

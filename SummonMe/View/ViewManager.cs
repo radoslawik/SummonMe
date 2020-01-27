@@ -8,7 +8,7 @@ using SummonMe.Models;
 
 namespace SummonMe.View
 {
-    public class Profile : INotifyPropertyChanged
+    public class ViewManager : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string info)
@@ -34,5 +34,13 @@ namespace SummonMe.View
             set { summonerName = value; NotifyPropertyChanged("SummonerName"); }
         }
 
+        private LeagueEntryDTO leagueEntry;
+        public LeagueEntryDTO LeagueEntry
+        {
+            get { return leagueEntry; }
+            set { leagueEntry = value; NotifyPropertyChanged("LeagueEntry"); }
+        }
+
     }
+
 }
