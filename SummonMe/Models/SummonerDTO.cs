@@ -14,6 +14,7 @@ namespace SummonMe.Models
         public string Puuid { get; set; }
         public long SummonerLevel { get; set; }
         public long RevisionDate { get; set; }
+        public string Id { get; set; }
 
     }
 }

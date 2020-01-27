@@ -16,7 +16,9 @@ namespace SummonMe.API
         public ApiHandler(string region)
         {
             Region = region;
-            Key = "xxxxxxxxxxxxx"; // your key
+            StreamReader read_key = new StreamReader("API/YourDeveloperKey.txt");
+            Key = read_key.ReadToEnd();
+            
         }
 
         protected HttpResponseMessage GetData(string URL)

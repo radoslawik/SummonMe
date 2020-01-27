@@ -36,13 +36,23 @@ namespace SummonMe
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SummonerHandler summoner_handler = new SummonerHandler("EUN1");
-            var summoner = summoner_handler.GetSummoner("mitr0vav0");
+            SummonerDTO summoner = summoner_handler.GetSummoner("mitr0vav0");
+            LeagueEntryHandler league_entry_handler = new LeagueEntryHandler("EUN1");
+            LeagueEntryDTO league_entry = league_entry_handler.GetLeagueEntry(summoner.Id).Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
 
             Console.WriteLine("name, level, revisiondate(seconds), special id");
             Console.WriteLine(summoner.Name);
             Console.WriteLine(summoner.SummonerLevel);
             Console.WriteLine(summoner.RevisionDate);
             Console.WriteLine(summoner.Puuid);
+            Console.WriteLine(summoner.Id);
+
+            Console.WriteLine("wins, loses");
+            Console.WriteLine(league_entry.Wins);
+            Console.WriteLine(league_entry.Losses);
+            Console.WriteLine(league_entry.Tier);
+
+
         }
     }
 }
