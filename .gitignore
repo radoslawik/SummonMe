@@ -5,4 +5,6 @@ packages
 /.vs
 /SummonMe/bin
 /SummonMe/obj
-/SummonMe/API/YourDeveloperKey.txt
+
+# exclude txt files
+*.txt
