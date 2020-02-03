@@ -14,12 +14,14 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         WindowStartupLocation="CenterScreen" 
         ResizeMode="NoResize"
-        Title="MainWindow" 
+        Title="SummonMe" 
         Height="600" 
         Width="900"
         >
 
     <!-- WindowStyle="None" -->
+
+
 
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center">

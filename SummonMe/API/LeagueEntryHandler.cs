@@ -14,13 +14,12 @@ namespace SummonMe.API
         {
         }
 
-        public List<LeagueEntryDTO> GetLeagueEntry(string summonerId)
+        public async Task<List<LeagueEntryDTO>> GetLeagueEntry(string summonerId)
         {
             string path = "league/v4/entries/by-summoner/" + summonerId;
-            var response = GetData(GetURL(path));
-            string content = response.Content.ReadAsStringAsync().Result;
+            string content = await GetData(GetURL(path));
 
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (content != null)
             {
                 return JsonConvert.DeserializeObject<List<LeagueEntryDTO>>(content);
             }

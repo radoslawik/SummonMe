@@ -21,15 +21,27 @@ namespace SummonMe.API
             
         }
 
-        protected HttpResponseMessage GetData(string URL)
+        public async Task<string> GetData(string URL)
         {
-            using (HttpClient client = new HttpClient())
+            string responseBody = "";
+            // Call asynchronous network methods in a try/catch block to handle exceptions.
+            try
             {
-                var result = client.GetAsync(URL);
-                result.Wait();
+                var client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(URL);
+                response.EnsureSuccessStatusCode();
+                responseBody = await response.Content.ReadAsStringAsync();
+                // Above three lines can be replaced with new helper method below
+                // string responseBody = await client.GetStringAsync(uri);
 
-                return result.Result;
+                Console.WriteLine(response.StatusCode);
             }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
+            return responseBody;
         }
 
         protected string GetURL(string path)

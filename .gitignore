@@ -5,6 +5,6 @@ packages
 /.vs
 /SummonMe/bin
 /SummonMe/obj
-
+/SummonMe/SummonMe.csproj.user
 # exclude txt files
 *.txt
