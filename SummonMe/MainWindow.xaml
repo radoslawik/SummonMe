@@ -36,7 +36,7 @@
                 
             </StackPanel>
             <StackPanel Margin="30" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="pack://application:,,,/Assets/emblems/Emblem_Gold.png" Height="120" Width="120"/>
+                <Image Source="pack://application:,,,/Assets/Emblem/Emblem_Gold.png" Height="120" Width="120"/>
                 <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
                     <TextBlock Margin="20 15" Text="Wins" FontSize="15" Foreground="LightGray"/>
                     <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Wins}"/>
