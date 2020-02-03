@@ -33,7 +33,7 @@ namespace SummonMe
             this.DataContext = viewProfile;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if(string.IsNullOrEmpty(viewProfile.SummonerName) || string.IsNullOrEmpty(viewProfile.Region))
             {
@@ -43,9 +43,18 @@ namespace SummonMe
             }
 
             SummonerHandler summoner_handler = new SummonerHandler(viewProfile.Region);
-            SummonerDTO summoner = summoner_handler.GetSummoner(viewProfile.SummonerName);
+            SummonerDTO summoner = await summoner_handler.GetSummoner(viewProfile.SummonerName);
+            if(summoner == null)
+            {
+                return;
+            }
             LeagueEntryHandler league_entry_handler = new LeagueEntryHandler(viewProfile.Region);
-            LeagueEntryDTO league_entry = league_entry_handler.GetLeagueEntry(summoner.Id).Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
+            List<LeagueEntryDTO> league_entries = await league_entry_handler.GetLeagueEntry(summoner.Id);
+            if (league_entries == null)
+            {
+                return;
+            }
+            LeagueEntryDTO league_entry = league_entries.Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
             viewProfile.LeagueEntry = league_entry;
 
             Console.WriteLine("summoner name, region");

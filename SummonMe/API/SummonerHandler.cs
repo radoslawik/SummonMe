@@ -15,14 +15,13 @@ namespace SummonMe.API
         {
         }
 
-        public SummonerDTO GetSummoner(string name)
+        public async Task<SummonerDTO> GetSummoner(string name)
         {
             string path = "summoner/v4/summoners/by-name/" + name;
 
-            var response = GetData(GetURL(path));
-            string content = response.Content.ReadAsStringAsync().Result;
+            string content = await GetData(GetURL(path));
 
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (content != null)
             {
                 return JsonConvert.DeserializeObject<SummonerDTO>(content);
             }
