@@ -23,19 +23,32 @@
 
     <Grid>
         <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center">
-            <Image Source="pack://application:,,,/Assets/logo.png"/>
             <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox Height="40" Width="200" Margin="50 10 0 10" Text="{Binding SummonerName}" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Summoner"/>
-                <TextBox Height="40" Width="200" Margin="50 10 0 10" Text="{Binding Region}" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Region"/>
-                <Button Name="Search" Margin="50 10 0 10" VerticalAlignment="Top" Content="SHOW DATA" Click="Button_Click"/>
+                <Image Source="pack://application:,,,/Assets/icon.ico" Height="120" Width="120"/>
+                <TextBox Height="40" Width="200" Margin="50 10 0 10" Text="{Binding SummonerName}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Summoner"/>
+                <TextBox Height="40" Width="200" Margin="50 10 0 10" Text="{Binding Region}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Region"/>
+                <Button Name="Search" Margin="50 10 0 10" VerticalAlignment="Center" Content="{materialDesign:PackIcon AccountSearch}"  Click="Button_Click" Height="50" Width="100"/>
+                
+            </StackPanel>
+            <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
+                
             </StackPanel>
             <StackPanel Margin="30" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="pack://application:,,,/Assets/emblems/Emblem_Gold.png" Height="120" Width="120"/>
                 <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
                     <TextBlock Margin="20 15" Text="Wins" FontSize="15" Foreground="LightGray"/>
                     <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Wins}"/>
                 </StackPanel>
                 <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
                     <TextBlock Margin="20 15" Text="Loses" FontSize="15" Foreground="LightGray"/>
+                    <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
+                </StackPanel>
+                <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                    <TextBlock Margin="20 15" Text="Most Played Champion" FontSize="15" Foreground="LightGray"/>
+                    <Image Source="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" Height="120" Width="120"/>
+                </StackPanel>
+                <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                    <TextBlock Margin="20 15" Text="Percentage" FontSize="15" Foreground="LightGray"/>
                     <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
                 </StackPanel>
             </StackPanel>
