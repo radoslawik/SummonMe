@@ -81,8 +81,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="API\ChampionMasteryHandler.cs" />
     <Compile Include="API\LeagueEntryHandler.cs" />
+    <Compile Include="Models\ChampionMasteryDTO.cs" />
     <Compile Include="Models\LeagueEntryDTO.cs" />
+    <Compile Include="Models\MatchlistDto.cs" />
+    <Compile Include="Models\MatchReferenceDto.cs" />
     <Compile Include="View\ViewManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

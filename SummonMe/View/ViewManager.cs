@@ -41,6 +41,34 @@ namespace SummonMe.View
             set { leagueEntry = value; NotifyPropertyChanged("LeagueEntry"); }
         }
 
+        private SummonerDTO summonerEntry;
+        public SummonerDTO SummonerEntry
+        {
+            get { return summonerEntry; }
+            set { summonerEntry = value; NotifyPropertyChanged("SummonerEntry"); }
+        }
+
+        private ChampionMasteryDTO championMasteryEntry;
+        public ChampionMasteryDTO ChampionMasteryEntry
+        {
+            get { return championMasteryEntry; }
+            set { championMasteryEntry = value; NotifyPropertyChanged("ChampionMasteryEntry"); }
+        }
+
+        private string emblemPath;
+        public string EmblemPath
+        {
+            get { return emblemPath; }
+            set { emblemPath = value; NotifyPropertyChanged("EmblemPath"); }
+        }
+
+        private string champIconPath;
+        public string ChampIconPath
+        {
+            get { return champIconPath; }
+            set { champIconPath = value; NotifyPropertyChanged("ChampIconPath"); }
+        }
+
     }
 
 }

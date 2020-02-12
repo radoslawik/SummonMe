@@ -48,6 +48,8 @@ namespace SummonMe
             {
                 return;
             }
+            viewProfile.SummonerEntry = summoner;
+
             LeagueEntryHandler league_entry_handler = new LeagueEntryHandler(viewProfile.Region);
             List<LeagueEntryDTO> league_entries = await league_entry_handler.GetLeagueEntry(summoner.Id);
             if (league_entries == null)
@@ -56,6 +58,19 @@ namespace SummonMe
             }
             LeagueEntryDTO league_entry = league_entries.Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
             viewProfile.LeagueEntry = league_entry;
+            viewProfile.EmblemPath = "pack://application:,,,/Assets/Emblem/Emblem_" + league_entry.Tier + ".png";
+
+            ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);
+            List<ChampionMasteryDTO> champ_masteries = await champ_mastery_handler.GetChampionMasteries(summoner.Id);
+            if (champ_masteries == null)
+            {
+                return;
+            }
+            ChampionMasteryDTO most_points_champ = champ_masteries.First();
+            viewProfile.ChampionMasteryEntry = most_points_champ;
+            // viewProfile.ChampIconPath = "http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/" + most_points_champ.ChampionId + ".png";
+            // championID is a number, we need string, API is not useful here :(
+            viewProfile.ChampIconPath = "http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/" + "Nidalee" + ".png";
 
             Console.WriteLine("summoner name, region");
             Console.WriteLine(viewProfile.SummonerName);
