@@ -33,10 +33,11 @@ namespace SummonMe
             this.DataContext = viewProfile;
             Main.Content = new InfoError("Hello! Use the panel above to search for the summoner");
 
-
-            GeneralButton.Visibility = Visibility.Hidden;
+            GeneralButton.Visibility = Visibility.Hidden;  
             ChampionButton.Visibility = Visibility.Hidden;
             MatchButton.Visibility = Visibility.Hidden;
+
+            GeneralButton.Foreground = Brushes.Purple;
 
         }
 
@@ -99,6 +100,10 @@ namespace SummonMe
             Console.WriteLine(league_entry.Losses);
             Console.WriteLine(league_entry.Tier);
 
+            Console.WriteLine("champion mastery dto");
+            Console.WriteLine(most_points_champ.ChampionId);
+            Console.WriteLine(most_points_champ.ChampionLevel);
+
             GeneralButton.Visibility = Visibility.Visible;
             ChampionButton.Visibility = Visibility.Visible;
             MatchButton.Visibility = Visibility.Visible;
@@ -109,14 +114,23 @@ namespace SummonMe
 
         private void General_Click(object sender, RoutedEventArgs e)
         {
+            ChampionButton.Foreground = Brushes.MediumPurple;
+            MatchButton.Foreground = Brushes.MediumPurple;
+            GeneralButton.Foreground = Brushes.Purple;
             Main.Content = new General(viewProfile);
         }
         private void Match_Click(object sender, RoutedEventArgs e)
         {
+            GeneralButton.Foreground = Brushes.MediumPurple;
+            ChampionButton.Foreground = Brushes.MediumPurple;
+            MatchButton.Foreground = Brushes.Purple;
             Main.Content = new MatchHistory(viewProfile);
         }
         private void Champion_Click(object sender, RoutedEventArgs e)
         {
+            GeneralButton.Foreground = Brushes.MediumPurple;
+            MatchButton.Foreground = Brushes.MediumPurple;
+            ChampionButton.Foreground = Brushes.Purple;
             Main.Content = new ChampionMastery(viewProfile);
         }
 
