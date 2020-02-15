@@ -12,6 +12,7 @@ namespace SummonMe.API
     {
         private string Key { get; set; }
         private string Region { get; set; }
+        public string ErrorMsg = "";
 
         public ApiHandler(string region)
         {
@@ -40,6 +41,7 @@ namespace SummonMe.API
             {
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);
+                ErrorMsg = e.Message;
             }
             return responseBody;
         }

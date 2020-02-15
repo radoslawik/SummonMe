@@ -1,0 +1,56 @@
+﻿<Page x:Class="SummonMe.View.General"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SummonMe.View"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="{DynamicResource MaterialDesignPaper}"
+      TextElement.FontWeight="Medium"
+      TextElement.FontSize="14"
+      FontFamily="{materialDesign:MaterialDesignFont}"
+      d:DesignHeight="250" d:DesignWidth="800"
+      Title="General">
+
+    <Grid>
+        <Border Background="MediumPurple" CornerRadius="20" BorderBrush="Purple" BorderThickness="2">
+            <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border Background="LightGray" CornerRadius="20" BorderBrush="Gray" BorderThickness="1">
+                    <StackPanel Margin="5" Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock FontSize="18" FontWeight="Bold" Foreground="Black" Text="{Binding Path=SummonerEntry.Name}" HorizontalAlignment="Center"/>
+                        <Image Source="{Binding EmblemPath}" Height="150" Width="160"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                            <TextBlock FontSize="15" Foreground="Black" Text="{Binding Path=LeagueEntry.Tier}" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="15" Foreground="Black" Text="{Binding Path=LeagueEntry.Rank}" Margin="2" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
+                            <TextBlock FontSize="8" Foreground="Black" Text="LEAGUE POINTS:" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="12" Foreground="Black" Text="{Binding Path=LeagueEntry.LeaguePoints}" Margin="2" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Margin="20 15" Text="Wins" FontSize="15" Foreground="LightGray"/>
+                        <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Wins}"/>
+                    </StackPanel>
+                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Margin="20 15" Text="Loses" FontSize="15" Foreground="LightGray"/>
+                        <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
+                    </StackPanel>
+                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Margin="20 15" Text="Most Played Champion" FontSize="15" Foreground="LightGray"/>
+                        <Image Source="{Binding Path=ChampIconPath}" Height="120" Width="120"/>
+                    </StackPanel>
+                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Margin="20 15" Text="Percentage" FontSize="15" Foreground="LightGray"/>
+                        <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

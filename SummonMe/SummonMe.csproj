@@ -87,8 +87,32 @@
     <Compile Include="Models\LeagueEntryDTO.cs" />
     <Compile Include="Models\MatchlistDto.cs" />
     <Compile Include="Models\MatchReferenceDto.cs" />
+    <Compile Include="View\ChampionMastery.xaml.cs">
+      <DependentUpon>ChampionMastery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InfoError.xaml.cs">
+      <DependentUpon>InfoError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MatchHistory.xaml.cs">
+      <DependentUpon>MatchHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewManager.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\ChampionMastery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InfoError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -98,10 +122,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MatchHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\SummonerDTO.cs" />
