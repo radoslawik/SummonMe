@@ -52,6 +52,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.2.920, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.2\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -93,6 +99,9 @@
     <Compile Include="View\ChampionMastery.xaml.cs">
       <DependentUpon>ChampionMastery.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CurrentGame.xaml.cs">
+      <DependentUpon>CurrentGame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\General.xaml.cs">
       <DependentUpon>General.xaml</DependentUpon>
     </Compile>
@@ -104,6 +113,10 @@
     </Compile>
     <Compile Include="View\ViewManager.cs" />
     <Page Include="View\ChampionMastery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CurrentGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

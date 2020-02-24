@@ -49,9 +49,11 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Name="GeneralButton" Content="GENERAL" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="General_Click"/>
                     <Rectangle Height="30" Width="3" Fill="MediumPurple" />
+                    <Button Name="ChampionButton" Content="CHAMPION MASTERY" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Champion_Click"/>
+                    <Rectangle Height="30" Width="3" Fill="MediumPurple" />
                     <Button Name="MatchButton" Content="MATCH HISTORY" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Match_Click"/>
                     <Rectangle Height="30" Width="3" Fill="MediumPurple" />
-                    <Button Name="ChampionButton" Content="CHAMPION MASTERY" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Champion_Click"/>
+                    <Button Name="LiveButton" Content="CURRENT GAME" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Live_Click"/>
                 </StackPanel>
             </Grid>
             <Frame x:Name="Main" NavigationUIVisibility="Hidden" />

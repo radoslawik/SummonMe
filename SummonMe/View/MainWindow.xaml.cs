@@ -75,6 +75,9 @@ namespace SummonMe
 
             viewProfile.LeagueEntry = league_entry;
             viewProfile.EmblemPath = "pack://application:,,,/Assets/Emblem/Emblem_" + league_entry.Tier + ".png";
+            viewProfile.Winrate = (100*league_entry.Wins/(league_entry.Losses+league_entry.Wins)).ToString();
+            Console.WriteLine("Ranked winrate");
+            Console.WriteLine(viewProfile.Winrate);
 
             MatchlistHandler matchlist_handler = new MatchlistHandler(viewProfile.Region);
             MatchlistDto matchlist_entry = await matchlist_handler.GetMatchlist(summoner.AccountId);
@@ -94,16 +97,8 @@ namespace SummonMe
             //Console.WriteLine("Test For currentGame Handler");
             //Console.WriteLine(current_game_entry.GameId);
             
-            if (matchlist_entry == null)
-            {
-                Show_Notification("No current game to display");
-                return;
-            }
 
             viewProfile.CurrentGameEntry = current_game_entry;
-
-
-
 
             ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);
             List<ChampionMasteryDTO> champ_masteries = await champ_mastery_handler.GetChampionMasteries(summoner.Id);
@@ -144,6 +139,7 @@ namespace SummonMe
             ChampionButton.Foreground = Brushes.MediumPurple;
             MatchButton.Foreground = Brushes.MediumPurple;
             GeneralButton.Foreground = Brushes.Purple;
+            LiveButton.Foreground = Brushes.MediumPurple;
             Main.Content = new General(viewProfile);
         }
         private void Match_Click(object sender, RoutedEventArgs e)
@@ -151,6 +147,7 @@ namespace SummonMe
             GeneralButton.Foreground = Brushes.MediumPurple;
             ChampionButton.Foreground = Brushes.MediumPurple;
             MatchButton.Foreground = Brushes.Purple;
+            LiveButton.Foreground = Brushes.MediumPurple;
             Main.Content = new MatchHistory(viewProfile);
         }
         private void Champion_Click(object sender, RoutedEventArgs e)
@@ -158,13 +155,33 @@ namespace SummonMe
             GeneralButton.Foreground = Brushes.MediumPurple;
             MatchButton.Foreground = Brushes.MediumPurple;
             ChampionButton.Foreground = Brushes.Purple;
+            LiveButton.Foreground = Brushes.MediumPurple;
             Main.Content = new ChampionMastery(viewProfile);
         }
 
-        private void Show_Notification(string err_msg)
+        private void Live_Click(object sender, RoutedEventArgs e)
+        {
+            GeneralButton.Foreground = Brushes.MediumPurple;
+            MatchButton.Foreground = Brushes.MediumPurple;
+            ChampionButton.Foreground = Brushes.MediumPurple;
+            LiveButton.Foreground = Brushes.Purple;
+
+            if (viewProfile.CurrentGameEntry == null)
+            {
+                Show_Notification("No current game to display", false);
+                return;
+            }
+            else
+            {
+                Main.Content = new CurrentGame(viewProfile);
+            }
+
+        }
+
+        private void Show_Notification(string err_msg, bool hide = true)
         {
             Main.Content = new InfoError(err_msg);
-            MenuBar.Visibility = Visibility.Hidden;
+            if(hide) MenuBar.Visibility = Visibility.Hidden;
         }
     }
 }
