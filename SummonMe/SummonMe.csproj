@@ -84,6 +84,7 @@
     <Compile Include="API\ChampionMasteryHandler.cs" />
     <Compile Include="API\LeagueEntryHandler.cs" />
     <Compile Include="Models\ChampionMasteryDTO.cs" />
+    <Compile Include="Models\CurrentGameInfo.cs" />
     <Compile Include="Models\LeagueEntryDTO.cs" />
     <Compile Include="Models\MatchlistDto.cs" />
     <Compile Include="Models\MatchReferenceDto.cs" />
@@ -160,11 +161,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="API\YourDeveloperKey.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -182,7 +178,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="API\YourDeveloperKey.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Emblem\Emblem_Bronze.png" />
     <Resource Include="Assets\Emblem\Emblem_Challenger.png" />
