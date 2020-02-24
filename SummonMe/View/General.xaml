@@ -15,12 +15,43 @@
       Title="General">
 
     <Grid>
-        <Border Background="MediumPurple" CornerRadius="20" BorderBrush="Purple" BorderThickness="2">
+        <Border CornerRadius="20" BorderThickness="2" Margin="10 10 10 10">
+            <Border.Effect>
+                <DropShadowEffect Color="Purple" Direction="0" BlurRadius="20" RenderingBias="Performance" ShadowDepth="1"/>
+            </Border.Effect>
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,0.9" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEBEFFA" Offset="0.9"/>
+                    <GradientStop Color="Purple"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.6,0.9" StartPoint="0.5,0">
+                    <GradientStop Color="MediumPurple" Offset="0.08"/>
+                    <GradientStop Color="#FFEBEFFA" Offset="3"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            
             <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Border Background="LightGray" CornerRadius="20" BorderBrush="Gray" BorderThickness="1">
+                <Border CornerRadius="20" BorderThickness="1" Margin="5 5 5 5">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Purple" Direction="0" BlurRadius="7" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Border.Effect>
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,0.9" StartPoint="0.5,0">
+                            <GradientStop Color="Gray" Offset="0.3"/>
+                            <GradientStop Color="Purple"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.6,0.9" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0.08"/>
+                            <GradientStop Color="MediumPurple" Offset="3"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
                     <StackPanel Margin="5" Orientation="Vertical" HorizontalAlignment="Center">
                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Path=SummonerEntry.Name}" HorizontalAlignment="Center"/>
-                        <Image Source="{Binding EmblemPath}" Height="150" Width="160"/>
+                        <Image Source="{Binding EmblemPath}" Height="172" Width="150"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                             <TextBlock FontSize="15" Text="{Binding Path=LeagueEntry.Tier}" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock FontSize="15" Text="{Binding Path=LeagueEntry.Rank}" Margin="2" VerticalAlignment="Center"/>
