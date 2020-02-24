@@ -19,15 +19,15 @@
             <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Border Background="LightGray" CornerRadius="20" BorderBrush="Gray" BorderThickness="1">
                     <StackPanel Margin="5" Orientation="Vertical" HorizontalAlignment="Center">
-                        <TextBlock FontSize="18" FontWeight="Bold" Foreground="Black" Text="{Binding Path=SummonerEntry.Name}" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Path=SummonerEntry.Name}" HorizontalAlignment="Center"/>
                         <Image Source="{Binding EmblemPath}" Height="150" Width="160"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                            <TextBlock FontSize="15" Foreground="Black" Text="{Binding Path=LeagueEntry.Tier}" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock FontSize="15" Foreground="Black" Text="{Binding Path=LeagueEntry.Rank}" Margin="2" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="15" Text="{Binding Path=LeagueEntry.Tier}" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="15" Text="{Binding Path=LeagueEntry.Rank}" Margin="2" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
-                            <TextBlock FontSize="8" Foreground="Black" Text="LEAGUE POINTS:" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock FontSize="12" Foreground="Black" Text="{Binding Path=LeagueEntry.LeaguePoints}" Margin="2" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="8" Text="LEAGUE POINTS:" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="12" Text="{Binding Path=LeagueEntry.LeaguePoints}" Margin="2" VerticalAlignment="Center"/>
                         </StackPanel>
 
                     </StackPanel>

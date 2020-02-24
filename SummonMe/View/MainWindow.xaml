@@ -38,12 +38,19 @@
                     <ComboBoxItem Content="LA1"/>
                     <ComboBoxItem Content="LA2"/>
                 </ComboBox>
-                <Button Height="50" Width="100" Background="MediumPurple" Name="Search" Margin="100 10 0 10" VerticalAlignment="Center" Content="{materialDesign:PackIcon AccountSearch}"  Click="Button_Click" />
+                <Button Height="50" Width="100" Background="MediumPurple" Foreground="{DynamicResource MaterialDesignPaper}" Name="Search" Margin="100 10 0 10" VerticalAlignment="Center" Click="Button_Click" >
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="PersonSearch" />
+                        <TextBlock Text="SEARCH" FontSize="12" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
-            <Grid Height="50" VerticalAlignment="Center">
+            <Grid Name="MenuBar" Height="50" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Name="GeneralButton" Content="GENERAL" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="General_Click"/>
+                    <Rectangle Height="30" Width="3" Fill="MediumPurple" />
                     <Button Name="MatchButton" Content="MATCH HISTORY" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Match_Click"/>
+                    <Rectangle Height="30" Width="3" Fill="MediumPurple" />
                     <Button Name="ChampionButton" Content="CHAMPION MASTERY" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Champion_Click"/>
                 </StackPanel>
             </Grid>

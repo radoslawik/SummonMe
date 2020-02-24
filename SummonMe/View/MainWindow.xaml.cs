@@ -33,9 +33,7 @@ namespace SummonMe
             this.DataContext = viewProfile;
             Main.Content = new InfoError("Hello! Use the panel above to search for the summoner");
 
-            GeneralButton.Visibility = Visibility.Hidden;  
-            ChampionButton.Visibility = Visibility.Hidden;
-            MatchButton.Visibility = Visibility.Hidden;
+            MenuBar.Visibility = Visibility.Hidden;
 
             GeneralButton.Foreground = Brushes.Purple;
 
@@ -69,9 +67,15 @@ namespace SummonMe
                 return;
             }
             LeagueEntryDTO league_entry = league_entries.Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
+            if (league_entry == null)
+            {
+                Show_Notification("No ranking games data to display");
+                return;
+            }
+
             viewProfile.LeagueEntry = league_entry;
             viewProfile.EmblemPath = "pack://application:,,,/Assets/Emblem/Emblem_" + league_entry.Tier + ".png";
-
+            
             ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);
             List<ChampionMasteryDTO> champ_masteries = await champ_mastery_handler.GetChampionMasteries(summoner.Id);
             if (champ_masteries == null)
@@ -95,18 +99,12 @@ namespace SummonMe
             Console.WriteLine(summoner.Puuid);
             Console.WriteLine(summoner.Id);
 
-            Console.WriteLine("wins, loses");
-            Console.WriteLine(league_entry.Wins);
-            Console.WriteLine(league_entry.Losses);
-            Console.WriteLine(league_entry.Tier);
 
             Console.WriteLine("champion mastery dto");
             Console.WriteLine(most_points_champ.ChampionId);
             Console.WriteLine(most_points_champ.ChampionLevel);
 
-            GeneralButton.Visibility = Visibility.Visible;
-            ChampionButton.Visibility = Visibility.Visible;
-            MatchButton.Visibility = Visibility.Visible;
+            MenuBar.Visibility = Visibility.Visible;
             Main.Content = new General(viewProfile);
 
 
@@ -137,9 +135,7 @@ namespace SummonMe
         private void Show_Notification(string err_msg)
         {
             Main.Content = new InfoError(err_msg);
-            GeneralButton.Visibility = Visibility.Hidden;
-            ChampionButton.Visibility = Visibility.Hidden;
-            MatchButton.Visibility = Visibility.Hidden;
+            MenuBar.Visibility = Visibility.Hidden;
         }
     }
 }
