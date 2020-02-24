@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SummonMe.Models
 {
-    class MatchlistDto
+    public class MatchlistDto
     {
         public List<MatchReferenceDto> Matches { get; set; }
         public int TotalGames { get; set; }
