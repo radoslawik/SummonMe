@@ -179,7 +179,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="API\YourDeveloperKey.txt" />
+    <Resource Include="API\YourDeveloperKey.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Emblem\Emblem_Bronze.png" />
