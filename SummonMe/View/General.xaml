@@ -32,9 +32,8 @@
                     <GradientStop Color="#FFEBEFFA" Offset="3"/>
                 </LinearGradientBrush>
             </Border.Background>
-            
-            <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Border CornerRadius="20" BorderThickness="1" Margin="5 5 5 5">
+            <StackPanel Margin="5" Orientation="Horizontal" >
+                <Border CornerRadius="20" BorderThickness="1" Margin="5 5 5 5" HorizontalAlignment="Left">
                     <Border.Effect>
                         <DropShadowEffect Color="Purple" Direction="0" BlurRadius="7" RenderingBias="Quality" ShadowDepth="1"/>
                     </Border.Effect>
@@ -61,34 +60,42 @@
                             <TextBlock FontSize="8" Text="LEAGUE POINTS:" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock FontSize="12" Text="{Binding Path=LeagueEntry.LeaguePoints}" Margin="2" VerticalAlignment="Center"/>
                         </StackPanel>
-
                     </StackPanel>
                 </Border>
-                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
-                        <TextBlock Margin="20 15" Text="Wins" FontSize="15" Foreground="LightGray"/>
-                        <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Wins}"/>
+                <StackPanel Margin="5" Orientation="Vertical" HorizontalAlignment="Center" Width="550">
+                    <TextBlock Text="RANKED SOLO/DUO GAMES" HorizontalAlignment="Center"/>
+                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" >
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                <TextBlock Margin="12 0 8 0" Text="Wins" FontSize="20" Foreground="LightGray"/>
+                                <TextBlock Margin="8 0 12 0" FontSize="20" Text="{Binding Path=LeagueEntry.Wins}"/>
+                                <TextBlock Margin="12 0 8 0" Text="Losses" FontSize="20" Foreground="LightGray"/>
+                                <TextBlock Margin="8 0 12 0" FontSize="20" Text="{Binding Path=LeagueEntry.Losses}"/>
+                            </StackPanel>
+                            <StackPanel Margin="15" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <lvc:Gauge From="0" To="100" Value="{Binding Path=Winrate}" LabelsVisibility="Collapsed" Height="100" Width="150">
+                                    <lvc:Gauge.GaugeActiveFill>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="Lime" Offset="0.1" />
+                                            <GradientStop Color="Green" Offset="0.5" />
+                                            <GradientStop Color="DarkGreen" Offset="0.8" />
+                                        </LinearGradientBrush>
+                                    </lvc:Gauge.GaugeActiveFill>
+                                </lvc:Gauge>
+                                <TextBlock Margin="20 15" Text="Winrate %" FontSize="20" Foreground="LightGray" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Width="175">
+                            <Border Height="128" Width="128" CornerRadius="20" BorderBrush="Purple" BorderThickness="1">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding Path=ProfileIconPath}" Stretch="Fill"/>
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Margin="0 5 0 0" Text="Summoner level" FontSize="20" Foreground="LightGray" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="20" Text="{Binding Path=SummonerEntry.SummonerLevel}" HorizontalAlignment="Center"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
-                        <TextBlock Margin="20 15" Text="Loses" FontSize="15" Foreground="LightGray"/>
-                        <TextBlock Margin="20 15" FontSize="30" Text="{Binding Path=LeagueEntry.Losses}"/>
-                    </StackPanel>
-                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
-                        <TextBlock Margin="20 15" Text="Most Played Champion" FontSize="15" Foreground="LightGray"/>
-                        <Image Source="{Binding Path=ChampIconPath}" Height="120" Width="120"/>
-                    </StackPanel>
-                    <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center">
-                        <TextBlock Margin="20 15" Text="Percentage" FontSize="15" Foreground="LightGray"/>
-                        <lvc:Gauge From="0" To="100" Value="{Binding Path=Winrate}" LabelsVisibility="Collapsed" Height="65" Width="120">
-                            <lvc:Gauge.GaugeActiveFill>
-                                <LinearGradientBrush>
-                                    <GradientStop Color="Lime" Offset="0.1" />
-                                    <GradientStop Color="Green" Offset="0.5" />
-                                    <GradientStop Color="DarkGreen" Offset="0.8" />
-                                </LinearGradientBrush>
-                            </lvc:Gauge.GaugeActiveFill>
-                        </lvc:Gauge>
-                    </StackPanel>
+                    <TextBlock Margin="0 0 0 10" Text="IN SERIES ..... VETERAN ...... FRESH BLOOD ....... HOT SERIES" />
                 </StackPanel>
             </StackPanel>
         </Border>

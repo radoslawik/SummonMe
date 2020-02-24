@@ -84,6 +84,13 @@ namespace SummonMe.View
             set { champIconPath = value; NotifyPropertyChanged("ChampIconPath"); }
         }
 
+        private string profileIconPath;
+        public string ProfileIconPath
+        {
+            get { return profileIconPath; }
+            set { profileIconPath = value; NotifyPropertyChanged("ProfileIconPath"); }
+        }
+
         private string winrate;
         public string Winrate
         {
