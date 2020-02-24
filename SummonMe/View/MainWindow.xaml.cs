@@ -88,6 +88,21 @@ namespace SummonMe
 
             viewProfile.MatchlistEntry = matchlist_entry;
 
+            CurrentGameInfoHandler current_game_handler = new CurrentGameInfoHandler(viewProfile.Region);
+            CurrentGameInfo current_game_entry = await current_game_handler.GetCurrentGame(summoner.Id);
+
+            //Console.WriteLine("Test For currentGame Handler");
+            //Console.WriteLine(current_game_entry.GameId);
+            
+            if (matchlist_entry == null)
+            {
+                Show_Notification("No current game to display");
+                return;
+            }
+
+            viewProfile.CurrentGameEntry = current_game_entry;
+
+
 
 
             ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);

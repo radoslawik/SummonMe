@@ -82,6 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="API\ChampionMasteryHandler.cs" />
+    <Compile Include="API\CurrentGameInfoHandler.cs" />
     <Compile Include="API\LeagueEntryHandler.cs" />
     <Compile Include="API\MatchlistHandler.cs" />
     <Compile Include="Models\ChampionMasteryDTO.cs" />

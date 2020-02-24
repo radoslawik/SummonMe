@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SummonMe.Models
 {
-    class CurrentGameInfo
+    public class CurrentGameInfo
     {
         public long GameId { get; set; }
         public long GameStartTime { get; set; }

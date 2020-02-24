@@ -55,6 +55,14 @@ namespace SummonMe.View
             set { summonerEntry = value; NotifyPropertyChanged("SummonerEntry"); }
         }
 
+        private CurrentGameInfo currentGameEntry;
+
+        public CurrentGameInfo CurrentGameEntry 
+        {
+            get { return currentGameEntry; }
+            set { currentGameEntry = value; NotifyPropertyChanged("CurrentGameInfo"); }
+        }
+
         private ChampionMasteryDTO championMasteryEntry;
         public ChampionMasteryDTO ChampionMasteryEntry
         {
