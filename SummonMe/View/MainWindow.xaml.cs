@@ -75,7 +75,21 @@ namespace SummonMe
 
             viewProfile.LeagueEntry = league_entry;
             viewProfile.EmblemPath = "pack://application:,,,/Assets/Emblem/Emblem_" + league_entry.Tier + ".png";
-            
+
+            MatchlistHandler matchlist_handler = new MatchlistHandler(viewProfile.Region);
+            MatchlistDto matchlist_entry = await matchlist_handler.GetMatchlist(summoner.AccountId);
+
+            if (matchlist_entry == null)
+            {
+                Show_Notification("No match history to display");
+                return;
+            }
+            //Console.WriteLine(matchlist_entry.TotalGames);
+
+            viewProfile.MatchlistEntry = matchlist_entry;
+
+
+
             ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);
             List<ChampionMasteryDTO> champ_masteries = await champ_mastery_handler.GetChampionMasteries(summoner.Id);
             if (champ_masteries == null)

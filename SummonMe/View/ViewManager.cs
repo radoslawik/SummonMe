@@ -41,6 +41,13 @@ namespace SummonMe.View
             set { leagueEntry = value; NotifyPropertyChanged("LeagueEntry"); }
         }
 
+        private MatchlistDto matchlistEntry;
+        public MatchlistDto MatchlistEntry
+        {
+            get { return matchlistEntry; }
+            set { matchlistEntry = value; NotifyPropertyChanged("MatchlistEntry"); }
+        }
+
         private SummonerDTO summonerEntry;
         public SummonerDTO SummonerEntry
         {

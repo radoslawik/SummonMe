@@ -15,6 +15,7 @@ namespace SummonMe.Models
         public long SummonerLevel { get; set; }
         public long RevisionDate { get; set; }
         public string Id { get; set; }
+        public string AccountId { get; set; }
 
     }
 }
