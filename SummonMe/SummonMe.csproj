@@ -207,6 +207,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Emblem\Emblem_Unranked.png" />
     <Resource Include="Assets\Emblem\Emblem_Bronze.png" />
     <Resource Include="Assets\Emblem\Emblem_Challenger.png" />
     <Resource Include="Assets\Emblem\Emblem_Diamond.png" />

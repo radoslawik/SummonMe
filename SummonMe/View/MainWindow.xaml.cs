@@ -70,13 +70,27 @@ namespace SummonMe
             LeagueEntryDTO league_entry = league_entries.Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
             if (league_entry == null)
             {
-                Show_Notification("No ranking games data to display");
-                return;
+                league_entry = new LeagueEntryDTO();
+                league_entry.MiniSeries = null;
+                league_entry.HotStreak = false;
+                league_entry.FreshBlood = false;
+                league_entry.Veteran = false;
+                league_entry.Wins = 0;
+                league_entry.Losses = 0;
+                league_entry.Rank = "";
+                league_entry.Tier = "Unranked";
+                league_entry.LeaguePoints = 0;
+                viewProfile.Winrate = "0";
+            }
+            else
+            {
+                viewProfile.Winrate = (100 * league_entry.Wins / (league_entry.Losses + league_entry.Wins)).ToString();
             }
 
             viewProfile.LeagueEntry = league_entry;
             viewProfile.EmblemPath = "pack://application:,,,/Assets/Emblem/Emblem_" + league_entry.Tier + ".png";
-            viewProfile.Winrate = (100*league_entry.Wins/(league_entry.Losses+league_entry.Wins)).ToString();
+            
+
             Console.WriteLine("Ranked winrate");
             Console.WriteLine(viewProfile.Winrate);
 
