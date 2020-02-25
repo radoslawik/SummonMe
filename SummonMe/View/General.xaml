@@ -63,16 +63,16 @@
                     </StackPanel>
                 </Border>
                 <StackPanel Margin="5" Orientation="Vertical" HorizontalAlignment="Center" Width="550">
-                    <TextBlock Text="RANKED SOLO/DUO GAMES" HorizontalAlignment="Center"/>
-                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <TextBlock Margin="0 0 0 10" Text="RANKED SOLO/DUO GAMES" HorizontalAlignment="Center"/>
+                    <StackPanel Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center" >
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" >
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                                <TextBlock Margin="12 0 8 0" Text="Wins" FontSize="20" Foreground="LightGray"/>
-                                <TextBlock Margin="8 0 12 0" FontSize="20" Text="{Binding Path=LeagueEntry.Wins}"/>
-                                <TextBlock Margin="12 0 8 0" Text="Losses" FontSize="20" Foreground="LightGray"/>
-                                <TextBlock Margin="8 0 12 0" FontSize="20" Text="{Binding Path=LeagueEntry.Losses}"/>
+                                <TextBlock Margin="12 0 8 0" Text="Wins" FontSize="16" Foreground="LightGray"/>
+                                <TextBlock Margin="8 0 12 0" FontSize="16" Text="{Binding Path=LeagueEntry.Wins}"/>
+                                <TextBlock Margin="12 0 8 0" Text="Losses" FontSize="16" Foreground="LightGray"/>
+                                <TextBlock Margin="8 0 12 0" FontSize="16" Text="{Binding Path=LeagueEntry.Losses}"/>
                             </StackPanel>
-                            <StackPanel Margin="15" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Margin="5" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <lvc:Gauge From="0" To="100" Value="{Binding Path=Winrate}" LabelsVisibility="Collapsed" Height="100" Width="150">
                                     <lvc:Gauge.GaugeActiveFill>
                                         <LinearGradientBrush>
@@ -82,20 +82,26 @@
                                         </LinearGradientBrush>
                                     </lvc:Gauge.GaugeActiveFill>
                                 </lvc:Gauge>
-                                <TextBlock Margin="20 15" Text="Winrate %" FontSize="20" Foreground="LightGray" HorizontalAlignment="Center"/>
+                                <TextBlock Margin="5" Text="Winrate %" FontSize="16" Foreground="LightGray" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Width="175">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200">
                             <Border Height="128" Width="128" CornerRadius="20" BorderBrush="Purple" BorderThickness="1">
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding Path=ProfileIconPath}" Stretch="Fill"/>
                                 </Border.Background>
                             </Border>
-                            <TextBlock Margin="0 5 0 0" Text="Summoner level" FontSize="20" Foreground="LightGray" HorizontalAlignment="Center"/>
-                            <TextBlock FontSize="20" Text="{Binding Path=SummonerEntry.SummonerLevel}" HorizontalAlignment="Center"/>
+                            <TextBlock Margin="0 5 0 0" Text="Summoner level" FontSize="16" Foreground="LightGray" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="16" Text="{Binding Path=SummonerEntry.SummonerLevel}" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
-                    <TextBlock Margin="0 0 0 10" Text="IN SERIES ..... VETERAN ...... FRESH BLOOD ....... HOT SERIES" />
+                    <StackPanel Margin="10 0 10 0" Name="Badges" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Margin" Value="10 20 10 10"/>
+                            </Style>
+                        </StackPanel.Resources>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Border>

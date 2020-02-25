@@ -96,6 +96,10 @@
     <Compile Include="Models\LeagueEntryDTO.cs" />
     <Compile Include="Models\MatchlistDto.cs" />
     <Compile Include="Models\MatchReferenceDto.cs" />
+    <Compile Include="Models\MiniSeriesDTO.cs" />
+    <Compile Include="View\Badge.xaml.cs">
+      <DependentUpon>Badge.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ChampionMastery.xaml.cs">
       <DependentUpon>ChampionMastery.xaml</DependentUpon>
     </Compile>
@@ -112,6 +116,10 @@
       <DependentUpon>MatchHistory.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewManager.cs" />
+    <Page Include="View\Badge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ChampionMastery.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

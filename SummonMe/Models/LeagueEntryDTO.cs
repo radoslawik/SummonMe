@@ -20,5 +20,6 @@ namespace SummonMe.Models
         public string SummonerId { get; set; }
         public bool Inactive { get; set; }
         public bool FreshBlood { get; set; }
+        public MiniSeriesDTO MiniSeries { get; set; }
     }
 }

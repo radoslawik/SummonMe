@@ -25,6 +25,17 @@ namespace SummonMe.View
 
             InitializeComponent();
             this.DataContext = viewManager;
+
+            if (viewManager.LeagueEntry.FreshBlood)
+                Badges.Children.Add(new Badge("FRESHMAN", MaterialDesignThemes.Wpf.PackIconKind.NewBox));
+            if (viewManager.LeagueEntry.Veteran)
+                Badges.Children.Add(new Badge("VETERAN", MaterialDesignThemes.Wpf.PackIconKind.ShieldStar));
+            if (viewManager.LeagueEntry.HotStreak)
+                Badges.Children.Add(new Badge("SERIES", MaterialDesignThemes.Wpf.PackIconKind.SmileyCool));
+            if (viewManager.LeagueEntry.MiniSeries != null)
+                Badges.Children.Add(new Badge("WINSTREAK", MaterialDesignThemes.Wpf.PackIconKind.Fire));
+ 
         }
+
     }
 }
