@@ -63,11 +63,18 @@ namespace SummonMe.View
             set { currentGameEntry = value; NotifyPropertyChanged("CurrentGameInfo"); }
         }
 
-        private ChampionMasteryDTO championMasteryEntry;
-        public ChampionMasteryDTO ChampionMasteryEntry
+        private List<ChampionMasteryDTO> championMasteryEntry;
+        public List<ChampionMasteryDTO> ChampionMasteryEntry
         {
             get { return championMasteryEntry; }
             set { championMasteryEntry = value; NotifyPropertyChanged("ChampionMasteryEntry"); }
+        }
+
+        private List<string> champNames;
+        public List<string> ChampNames
+        {
+            get { return champNames; }
+            set { champNames = value; NotifyPropertyChanged("ChampNames"); }
         }
 
         private string emblemPath;

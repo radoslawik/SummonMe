@@ -121,7 +121,7 @@ namespace SummonMe
             {
                 return;
             }
-            ChampionMasteryDTO most_points_champ = champ_masteries.First();
+            List<ChampionMasteryDTO> most_points_champ = champ_masteries.GetRange(0, 3);
             viewProfile.ChampionMasteryEntry = most_points_champ;
             // viewProfile.ChampIconPath = "http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/" + most_points_champ.ChampionId + ".png";
             // championID is a number, we need string, API is not useful here :(
@@ -129,7 +129,13 @@ namespace SummonMe
 
             ChampionInfoHandler champion_data_handler = new ChampionInfoHandler();
             ChampionInfo champData = await champion_data_handler.GetChampionData();
-            Dictionary<string, string> championNames = champion_data_handler.ParseChampionData(champData.Data);
+            Dictionary<string, string> fullChampionNames = champion_data_handler.ParseChampionData(champData.Data);
+            List<string> championNames = new List<string>();
+            for(int i = 0; i < 3; i++)
+            {
+                championNames.Add(fullChampionNames[most_points_champ[i].ChampionId.ToString()]);
+            }
+            viewProfile.ChampNames = championNames;
 
             Console.WriteLine("summoner name, region");
             Console.WriteLine(viewProfile.SummonerName);
@@ -144,10 +150,13 @@ namespace SummonMe
 
 
             Console.WriteLine("champion with most mastery");
-            Console.WriteLine(most_points_champ.ChampionId);
-            Console.WriteLine(championNames[most_points_champ.ChampionId.ToString()]);
+            Console.WriteLine(championNames[0]);
 
             MenuBar.Visibility = Visibility.Visible;
+            ChampionButton.Foreground = Brushes.MediumPurple;
+            MatchButton.Foreground = Brushes.MediumPurple;
+            GeneralButton.Foreground = Brushes.Purple;
+            LiveButton.Foreground = Brushes.MediumPurple;
             Main.Content = new General(viewProfile);
 
 

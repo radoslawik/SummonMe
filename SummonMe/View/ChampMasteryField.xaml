@@ -1,0 +1,36 @@
+﻿<Grid x:Class="SummonMe.View.ChampMasteryField"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SummonMe.View"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="LightGray"
+      Background="Transparent"
+      TextElement.FontWeight="Medium"
+      TextElement.FontSize="12"
+      d:DesignHeight="250" d:DesignWidth="250">
+
+    <Grid>
+        <Border Name="masteryField" CornerRadius="20" BorderThickness="2" Height="250" Width="250">
+            <Border.Effect>
+                <DropShadowEffect Color="Purple" Direction="0" BlurRadius="20" RenderingBias="Performance" ShadowDepth="1"/>
+            </Border.Effect>
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,0.9" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEBEFFA" Offset="0.9"/>
+                    <GradientStop Color="Purple"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+
+        <StackPanel Margin="10" Orientation="Vertical">
+            <TextBlock Text="TOP1xxxxxxxxxxxxx" />
+            <TextBlock Name="championNameText" Text="champ name" />
+            <TextBlock Name="championPointsText" Text="champ points" />
+            <TextBlock Name="championLevelText" Text="champ level" />
+            <Image Name="levelMasteryImage"/>
+        </StackPanel>
+    </Grid>
+</Grid>

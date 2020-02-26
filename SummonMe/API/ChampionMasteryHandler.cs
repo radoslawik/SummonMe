@@ -27,23 +27,5 @@ namespace SummonMe.API
                 return null;
             }
         }
-
-        public ChampionMasteryDTO GetMostMasteryChamp(List<ChampionMasteryDTO> list)
-        {
-            int max_points = 0;
-            ChampionMasteryDTO retval = null;
-
-            foreach (var champMast in list)
-            {
-                if(champMast.ChampionPoints > max_points)
-                {
-                    max_points = champMast.ChampionPoints;
-                    retval = champMast;
-                }
-            }
-
-            return retval;
-
-        }
     }
 }

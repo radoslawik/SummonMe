@@ -9,6 +9,12 @@
       Title="ChampionMastery">
 
     <Grid>
-        <TextBlock Text="Some data here" />
+        <StackPanel Margin="20" Name="BestChamps" Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </StackPanel.Resources>
+        </StackPanel>
     </Grid>
 </Page>
