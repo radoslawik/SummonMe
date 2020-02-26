@@ -17,7 +17,7 @@ namespace SummonMe.API
 
         public async Task<SummonerDTO> GetSummoner(string name)
         {
-            string path = "summoner/v4/summoners/by-name/" + name;
+            string path = "summoner/v4/summoners/by-name/" + name + "?";
 
             string content = await GetData(GetURL(path));
 

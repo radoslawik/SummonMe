@@ -18,6 +18,7 @@ namespace SummonMe.Models
         public string Rank { get; set; }
         public int LeaguePoints { get; set; }
         public string SummonerId { get; set; }
+        public string SummonerName { get; set; }
         public bool Inactive { get; set; }
         public bool FreshBlood { get; set; }
         public MiniSeriesDTO MiniSeries { get; set; }

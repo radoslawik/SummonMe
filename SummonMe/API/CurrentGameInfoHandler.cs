@@ -15,7 +15,7 @@ namespace SummonMe.API
         }
         public async Task<CurrentGameInfo> GetCurrentGame(string summonerId)
         {
-            string path = "spectator/v4/active-games/by-summoner/" + summonerId;
+            string path = "spectator/v4/active-games/by-summoner/" + summonerId + "?";
 
             string content = await GetData(GetURL(path));
 

@@ -48,7 +48,7 @@ namespace SummonMe.API
 
         protected string GetURL(string path)
         {
-            return "https://" + Region + ".api.riotgames.com/lol/" + path + "?api_key=" + Key;
+            return "https://" + Region + ".api.riotgames.com/lol/" + path + "api_key=" + Key;
         }
 
     }

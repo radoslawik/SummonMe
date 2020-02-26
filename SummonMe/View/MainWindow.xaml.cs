@@ -151,6 +151,18 @@ namespace SummonMe
             }
             viewProfile.ChampNames = championNames;
 
+            LeaderboardsHandler lb_handler = new LeaderboardsHandler(viewProfile.Region);
+            List<LeagueEntryDTO> lb = await lb_handler.GetChallengerRanking();
+            if (lb == null)
+            {
+                Show_Notification("Problem with challenger ranking");
+                return;
+            }
+
+            Console.WriteLine("top1 challenger");
+            Console.WriteLine(lb[0].LeaguePoints);
+            Console.WriteLine(lb[0].SummonerName);
+
             Console.WriteLine("summoner name, region");
             Console.WriteLine(viewProfile.SummonerName);
             Console.WriteLine(viewProfile.Region);

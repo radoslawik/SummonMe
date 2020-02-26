@@ -8,15 +8,16 @@ using Newtonsoft.Json;
 
 namespace SummonMe.API
 {
-    public class LeagueEntryHandler : ApiHandler
+    public class LeaderboardsHandler : ApiHandler
     {
-        public LeagueEntryHandler(string region) : base(region)
+        public LeaderboardsHandler(string region) : base(region)
         {
         }
 
-        public async Task<List<LeagueEntryDTO>> GetLeagueEntry(string summonerId)
+        public async Task<List<LeagueEntryDTO>> GetChallengerRanking()
         {
-            string path = "league/v4/entries/by-summoner/" + summonerId + "?";
+            string path = "league-exp/v4/entries/RANKED_SOLO_5x5/CHALLENGER/I?page=1&";
+            Console.WriteLine(GetURL(path));
             string content = await GetData(GetURL(path));
 
             if (content != null)

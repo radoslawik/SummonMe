@@ -15,7 +15,7 @@ namespace SummonMe.API
         }
         public async Task<List<ChampionMasteryDTO>> GetChampionMasteries(string summonerId)
         {
-            string path = "champion-mastery/v4/champion-masteries/by-summoner/" + summonerId;
+            string path = "champion-mastery/v4/champion-masteries/by-summoner/" + summonerId + "?";
             string content = await GetData(GetURL(path));
 
             if (content != null)

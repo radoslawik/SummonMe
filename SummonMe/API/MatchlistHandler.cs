@@ -15,7 +15,7 @@ namespace SummonMe.API
         }
         public async Task<MatchlistDto> GetMatchlist(string encryptedId)
         {
-            string path = "match/v4/matchlists/by-account/" + encryptedId;
+            string path = "match/v4/matchlists/by-account/" + encryptedId + "?";
 
             string content = await GetData(GetURL(path));
 
