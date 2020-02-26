@@ -87,10 +87,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="API\ChampionInfoHandler.cs" />
     <Compile Include="API\ChampionMasteryHandler.cs" />
     <Compile Include="API\CurrentGameInfoHandler.cs" />
     <Compile Include="API\LeagueEntryHandler.cs" />
     <Compile Include="API\MatchlistHandler.cs" />
+    <Compile Include="Models\ChampionInfo.cs" />
     <Compile Include="Models\ChampionMasteryDTO.cs" />
     <Compile Include="Models\CurrentGameInfo.cs" />
     <Compile Include="Models\LeagueEntryDTO.cs" />

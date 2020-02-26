@@ -127,6 +127,9 @@ namespace SummonMe
             // championID is a number, we need string, API is not useful here :(
             // viewProfile.ChampIconPath = "http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/" + "Nidalee" + ".png";
 
+            ChampionInfoHandler champion_data_handler = new ChampionInfoHandler();
+            ChampionInfo champData = await champion_data_handler.GetChampionData();
+            Dictionary<string, string> championNames = champion_data_handler.ParseChampionData(champData.Data);
 
             Console.WriteLine("summoner name, region");
             Console.WriteLine(viewProfile.SummonerName);
@@ -140,9 +143,9 @@ namespace SummonMe
             Console.WriteLine(summoner.Id);
 
 
-            Console.WriteLine("champion mastery dto");
+            Console.WriteLine("champion with most mastery");
             Console.WriteLine(most_points_champ.ChampionId);
-            Console.WriteLine(most_points_champ.ChampionLevel);
+            Console.WriteLine(championNames[most_points_champ.ChampionId.ToString()]);
 
             MenuBar.Visibility = Visibility.Visible;
             Main.Content = new General(viewProfile);

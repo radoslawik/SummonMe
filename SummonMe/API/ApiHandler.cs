@@ -14,12 +14,12 @@ namespace SummonMe.API
         private string Region { get; set; }
         public string ErrorMsg = "";
 
+        public ApiHandler() { }
         public ApiHandler(string region)
         {
             Region = region;
             StreamReader read_key = new StreamReader("API/YourDeveloperKey.txt");
-            Key = read_key.ReadToEnd();
-            
+            Key = read_key.ReadToEnd();      
         }
 
         public async Task<string> GetData(string URL)
