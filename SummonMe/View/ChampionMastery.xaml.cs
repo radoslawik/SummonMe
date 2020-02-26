@@ -27,13 +27,16 @@ namespace SummonMe.View
             this.DataContext = viewManager;
             BestChamps.Children.Add(new ChampMasteryField(viewManager.ChampNames[0],
                 viewManager.ChampionMasteryEntry[0].ChampionPoints,
-                viewManager.ChampionMasteryEntry[0].ChampionLevel));
+                viewManager.ChampionMasteryEntry[0].ChampionLevel,
+                0));
             BestChamps.Children.Add(new ChampMasteryField(viewManager.ChampNames[1],
                 viewManager.ChampionMasteryEntry[1].ChampionPoints,
-                viewManager.ChampionMasteryEntry[1].ChampionLevel));
+                viewManager.ChampionMasteryEntry[1].ChampionLevel,
+                1));
             BestChamps.Children.Add(new ChampMasteryField(viewManager.ChampNames[2],
                 viewManager.ChampionMasteryEntry[2].ChampionPoints,
-                viewManager.ChampionMasteryEntry[2].ChampionLevel));
+                viewManager.ChampionMasteryEntry[2].ChampionLevel,
+                2));
         }
     }
 }

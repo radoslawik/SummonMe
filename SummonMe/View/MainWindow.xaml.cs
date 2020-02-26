@@ -63,8 +63,14 @@ namespace SummonMe
 
             LeagueEntryHandler league_entry_handler = new LeagueEntryHandler(viewProfile.Region);
             List<LeagueEntryDTO> league_entries = await league_entry_handler.GetLeagueEntry(summoner.Id);
+            if (league_entry_handler.ErrorMsg != "")
+            {
+                Show_Notification(league_entry_handler.ErrorMsg);
+                return;
+            }
             if (league_entries == null)
             {
+                Show_Notification("No league data to display");
                 return;
             }
             LeagueEntryDTO league_entry = league_entries.Where(p => p.QueueType.Equals("RANKED_SOLO_5x5")).FirstOrDefault();
@@ -97,6 +103,12 @@ namespace SummonMe
             MatchlistHandler matchlist_handler = new MatchlistHandler(viewProfile.Region);
             MatchlistDto matchlist_entry = await matchlist_handler.GetMatchlist(summoner.AccountId);
 
+            if (matchlist_handler.ErrorMsg != "")
+            {
+                Show_Notification(matchlist_handler.ErrorMsg);
+                return;
+            }
+
             if (matchlist_entry == null)
             {
                 Show_Notification("No match history to display");
@@ -117,8 +129,10 @@ namespace SummonMe
 
             ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);
             List<ChampionMasteryDTO> champ_masteries = await champ_mastery_handler.GetChampionMasteries(summoner.Id);
-            if (champ_masteries == null)
+            if (champ_masteries.Count < 3)
             {
+                Console.WriteLine(champ_masteries.Count);
+                Show_Notification("Not enough champion mastery to display");
                 return;
             }
             List<ChampionMasteryDTO> most_points_champ = champ_masteries.GetRange(0, 3);

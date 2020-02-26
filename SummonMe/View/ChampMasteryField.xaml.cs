@@ -20,11 +20,10 @@ namespace SummonMe.View
     /// </summary>
     public partial class ChampMasteryField : Grid
     {
-        public ChampMasteryField(string champName, int champPoints, int champLevel)
+        public ChampMasteryField(string champName, int champPoints, int champLevel, int pos)
         {
             InitializeComponent();
-            championLevelText.Text = champLevel.ToString();
-            championNameText.Text = champName;
+            championNameText.Text = champName.ToUpper();
             championPointsText.Text = champPoints.ToString();
 
             string masteryLevelIcon = "pack://application:,,,/Assets/ChampionMastery/Champion_Mastery_Level_" + champLevel + "_Flair.png";
@@ -36,6 +35,9 @@ namespace SummonMe.View
             ImageBrush champBackgroudImage = new ImageBrush(champImage);
             champBackgroudImage.Stretch = Stretch.UniformToFill;
             masteryField.Background = champBackgroudImage;
+
+            string badgeText = "TOP " + (pos+1).ToString();
+            badgePlaceholder.Children.Add(new Badge(badgeText, MaterialDesignThemes.Wpf.PackIconKind.Medal));
         }
     }
 };
