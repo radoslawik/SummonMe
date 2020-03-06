@@ -27,7 +27,7 @@ namespace SummonMe.View
             InitializeComponent();
             this.DataContext = viewManager;
 
-            for(int i = 0; i < 7; i++)
+            for(int i = 0; i < viewManager.MatchEntries.Count; i++)
             {
                 int champId = viewManager.MatchlistEntry.Matches[i].Champion;
                 string champName = champNamesDict[champId.ToString()];

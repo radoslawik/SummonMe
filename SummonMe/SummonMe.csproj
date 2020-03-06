@@ -228,6 +228,7 @@
     <Content Include="API\YourDeveloperKey.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Assets\GamePositions\BOTTOM_SOLO.png" />
     <Resource Include="Assets\GamePositions\BOTTOM_DUO_CARRY.png" />
     <Resource Include="Assets\GamePositions\BOTTOM_DUO_SUPPORT.png" />
     <Resource Include="Assets\GamePositions\JUNGLE.png" />

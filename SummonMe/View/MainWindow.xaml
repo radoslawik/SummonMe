@@ -58,6 +58,6 @@
             </Grid>
             <Frame x:Name="Main" NavigationUIVisibility="Hidden" />
         </StackPanel>
-        <TextBlock FontSize="8" Text="CREDITS: PUDELKO Radoslaw, TÖREN Kutlu and JOHANNESMEIER Niklas" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5"/>
+        <TextBlock FontSize="8" Foreground="LightGray" Text="CREDITS: PUDELKO Radoslaw, TÖREN Kutlu and JOHANNESMEIER Niklas" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5"/>
     </Grid>
 </Window>

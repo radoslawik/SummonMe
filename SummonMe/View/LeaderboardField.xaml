@@ -9,7 +9,7 @@
       Background="{DynamicResource MaterialDesignPaper}"
       TextElement.FontWeight="Medium"
       TextElement.FontSize="14"
-      d:DesignHeight="40" d:DesignWidth="600">
+      d:DesignHeight="35" d:DesignWidth="600">
 
     <Grid Name="gMain">
         <Border HorizontalAlignment="Center" Height="30" Width="500" CornerRadius="20" BorderThickness="2" Margin="-30 0 0 0">
@@ -30,7 +30,7 @@
             </Border.Background>
         </Border>
         <TextBlock Name="tbRank" Text="1" Foreground="Gold" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="-490 0 0 0"/>
-        <Border HorizontalAlignment="Center" Height="40" Width="500" CornerRadius="20" BorderThickness="2" Margin="30 0 0 0">
+        <Border HorizontalAlignment="Center" Height="35" Width="500" CornerRadius="20" BorderThickness="2" Margin="30 0 0 0">
             <Border.Effect>
                 <DropShadowEffect Color="Purple" Direction="0" BlurRadius="5" RenderingBias="Performance" ShadowDepth="1"/>
             </Border.Effect>

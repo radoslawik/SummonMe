@@ -25,18 +25,13 @@ namespace SummonMe.View
 
             InitializeComponent();
             this.DataContext = viewManager;
-            BestChamps.Children.Add(new ChampMasteryField(viewManager.ChampNames[0],
-                viewManager.ChampionMasteryEntry[0].ChampionPoints,
-                viewManager.ChampionMasteryEntry[0].ChampionLevel,
-                0));
-            BestChamps.Children.Add(new ChampMasteryField(viewManager.ChampNames[1],
-                viewManager.ChampionMasteryEntry[1].ChampionPoints,
-                viewManager.ChampionMasteryEntry[1].ChampionLevel,
-                1));
-            BestChamps.Children.Add(new ChampMasteryField(viewManager.ChampNames[2],
-                viewManager.ChampionMasteryEntry[2].ChampionPoints,
-                viewManager.ChampionMasteryEntry[2].ChampionLevel,
-                2));
+            for(int i = 0; i < viewManager.ChampionMasteryEntry.Count; i++)
+            {
+                BestChamps.Children.Add(new ChampMasteryField(viewManager.ChampNames[i],
+                    viewManager.ChampionMasteryEntry[i].ChampionPoints,
+                    viewManager.ChampionMasteryEntry[i].ChampionLevel,
+                    i));
+            }
         }
     }
 }

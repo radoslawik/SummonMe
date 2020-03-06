@@ -100,20 +100,24 @@ namespace SummonMe
 
             ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);
             List<ChampionMasteryDTO> champ_masteries = await champ_mastery_handler.GetChampionMasteries(summoner.Id);
+            List<ChampionMasteryDTO> most_points_champ = new List<ChampionMasteryDTO>();
             if (champ_masteries.Count < 3)
             {
                 Console.WriteLine(champ_masteries.Count);
-                Show_Notification("Not enough champion mastery to display");
-                return;
+                most_points_champ = champ_masteries;
+                //Show_Notification("Not enough champion mastery to display");
             }
-            List<ChampionMasteryDTO> most_points_champ = champ_masteries.GetRange(0, 3);
+            else
+            {
+                most_points_champ = champ_masteries.GetRange(0, 3);
+            }
             viewProfile.ChampionMasteryEntry = most_points_champ;
 
             ChampionInfoHandler champion_data_handler = new ChampionInfoHandler();
             ChampionInfo champData = await champion_data_handler.GetChampionData();
             fullChampionNames = champion_data_handler.ParseChampionData(champData.Data);
             List<string> championNames = new List<string>();
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < most_points_champ.Count; i++)
             {
                 championNames.Add(fullChampionNames[most_points_champ[i].ChampionId.ToString()]);
             }
@@ -122,7 +126,7 @@ namespace SummonMe
             MatchlistHandler matchlist_handler = new MatchlistHandler(viewProfile.Region);
             MatchlistDto matchlist_entry = await matchlist_handler.GetMatchlist(summoner.AccountId);
             List<MatchDto> matchData = new List<MatchDto>();
-            if(matchlist_entry.Matches.Count > 7)
+            if(matchlist_entry.Matches.Count >= 7)
             {
                 for(int i = 0; i < 7; i++)
                 {
@@ -131,6 +135,15 @@ namespace SummonMe
                     matchData.Add(match_entry);
                 }            
             }
+            else if(matchlist_entry.Matches.Count>0)
+            {
+                for (int i = 0; i < matchlist_entry.Matches.Count; i++)
+                {
+                    long gameId = matchlist_entry.Matches[i].GameId;
+                    MatchDto match_entry = await matchlist_handler.GetMatch(gameId.ToString());
+                    matchData.Add(match_entry);
+                }
+            }
 
             List<Queues> queueData = await matchlist_handler.GetQueues();
 
@@ -138,12 +151,6 @@ namespace SummonMe
             if (matchlist_handler.ErrorMsg != "")
             {
                 Show_Notification(matchlist_handler.ErrorMsg);
-                return;
-            }
-
-            if (matchlist_entry == null)
-            {
-                Show_Notification("No match history to display");
                 return;
             }
 
@@ -191,20 +198,31 @@ namespace SummonMe
             ChampionButton.Foreground = Brushes.MediumPurple;
             MatchButton.Foreground = Brushes.Purple;
             LiveButton.Foreground = Brushes.MediumPurple;
-            Main.Content = new MatchHistory(viewProfile, fullChampionNames);
+            if(viewProfile.MatchEntries.Count > 0)
+            {
+                Main.Content = new MatchHistory(viewProfile, fullChampionNames);
+            }
+            else
+            {
+                Show_Notification("No match history to display", false);
+            }
+            
         }
         private void Champion_Click(object sender, RoutedEventArgs e)
         {
             GeneralButton.Foreground = Brushes.MediumPurple;
             MatchButton.Foreground = Brushes.MediumPurple;
             ChampionButton.Foreground = Brushes.Purple;
-            LiveButton.Foreground = Brushes.MediumPurple;  
-            Main.Content = new ChampionMastery(viewProfile);
-        }
-
-        void Page_LoadComplete(object sender, EventArgs e)
-        {
-            return;
+            LiveButton.Foreground = Brushes.MediumPurple;
+            if (viewProfile.ChampionMasteryEntry.Count > 0)
+            {
+                Main.Content = new ChampionMastery(viewProfile);
+            }
+            else
+            {
+                Show_Notification("Not enough champion mastery data to display", false);
+            }
+            
         }
 
         private void Live_Click(object sender, RoutedEventArgs e)
