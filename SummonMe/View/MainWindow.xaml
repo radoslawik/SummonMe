@@ -53,10 +53,11 @@
                     <Rectangle Height="30" Width="3" Fill="MediumPurple" />
                     <Button Name="MatchButton" Content="MATCH HISTORY" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Match_Click"/>
                     <Rectangle Height="30" Width="3" Fill="MediumPurple" />
-                    <Button Name="LiveButton" Content="CURRENT GAME" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Live_Click"/>
+                    <Button Name="LiveButton" Content="LEADERBOARD" Height="50" Margin="20 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="MediumPurple" Click="Live_Click"/>
                 </StackPanel>
             </Grid>
             <Frame x:Name="Main" NavigationUIVisibility="Hidden" />
         </StackPanel>
+        <TextBlock FontSize="8" Text="CREDITS: PUDELKO Radoslaw, TÖREN Kutlu and JOHANNESMEIER Niklas" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5"/>
     </Grid>
 </Window>

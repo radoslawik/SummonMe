@@ -18,12 +18,23 @@ namespace SummonMe.View
     /// <summary>
     /// Interaction logic for CurrentGame.xaml
     /// </summary>
-    public partial class CurrentGame : Page
+    public partial class Leaderboard : Page
     {
-        public CurrentGame(ViewManager viewManager)
+        public Leaderboard(ViewManager viewManager)
         {
             InitializeComponent();
             this.DataContext = viewManager;
+
+            for(int i=0; i < 8; i++)
+            {
+                lbEntries.Children.Add(
+                    new LeaderboardField(viewManager.ChallengerRanking[i].SummonerName,
+                    viewManager.ChallengerRanking[i].Wins,
+                    viewManager.ChallengerRanking[i].Losses,
+                    viewManager.ChallengerRanking[i].LeaguePoints,
+                    i+1));
+            }
+            
         }
     }
 }

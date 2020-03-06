@@ -24,6 +24,7 @@ namespace SummonMe
     public partial class MainWindow : Window
     {
         ViewManager viewProfile;
+        Dictionary<string, string> fullChampionNames;
         public MainWindow()
         {
 
@@ -95,37 +96,7 @@ namespace SummonMe
 
             viewProfile.LeagueEntry = league_entry;
             viewProfile.EmblemPath = "pack://application:,,,/Assets/Emblem/Emblem_" + league_entry.Tier + ".png";
-            
-
-            Console.WriteLine("Ranked winrate");
-            Console.WriteLine(viewProfile.Winrate);
-
-            MatchlistHandler matchlist_handler = new MatchlistHandler(viewProfile.Region);
-            MatchlistDto matchlist_entry = await matchlist_handler.GetMatchlist(summoner.AccountId);
-
-            if (matchlist_handler.ErrorMsg != "")
-            {
-                Show_Notification(matchlist_handler.ErrorMsg);
-                return;
-            }
-
-            if (matchlist_entry == null)
-            {
-                Show_Notification("No match history to display");
-                return;
-            }
-            //Console.WriteLine(matchlist_entry.TotalGames);
-
-            viewProfile.MatchlistEntry = matchlist_entry;
-
-            CurrentGameInfoHandler current_game_handler = new CurrentGameInfoHandler(viewProfile.Region);
-            CurrentGameInfo current_game_entry = await current_game_handler.GetCurrentGame(summoner.Id);
-
-            //Console.WriteLine("Test For currentGame Handler");
-            //Console.WriteLine(current_game_entry.GameId);
-            
-
-            viewProfile.CurrentGameEntry = current_game_entry;
+           
 
             ChampionMasteryHandler champ_mastery_handler = new ChampionMasteryHandler(viewProfile.Region);
             List<ChampionMasteryDTO> champ_masteries = await champ_mastery_handler.GetChampionMasteries(summoner.Id);
@@ -137,19 +108,50 @@ namespace SummonMe
             }
             List<ChampionMasteryDTO> most_points_champ = champ_masteries.GetRange(0, 3);
             viewProfile.ChampionMasteryEntry = most_points_champ;
-            // viewProfile.ChampIconPath = "http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/" + most_points_champ.ChampionId + ".png";
-            // championID is a number, we need string, API is not useful here :(
-            // viewProfile.ChampIconPath = "http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/" + "Nidalee" + ".png";
 
             ChampionInfoHandler champion_data_handler = new ChampionInfoHandler();
             ChampionInfo champData = await champion_data_handler.GetChampionData();
-            Dictionary<string, string> fullChampionNames = champion_data_handler.ParseChampionData(champData.Data);
+            fullChampionNames = champion_data_handler.ParseChampionData(champData.Data);
             List<string> championNames = new List<string>();
             for(int i = 0; i < 3; i++)
             {
                 championNames.Add(fullChampionNames[most_points_champ[i].ChampionId.ToString()]);
             }
             viewProfile.ChampNames = championNames;
+
+            MatchlistHandler matchlist_handler = new MatchlistHandler(viewProfile.Region);
+            MatchlistDto matchlist_entry = await matchlist_handler.GetMatchlist(summoner.AccountId);
+            List<MatchDto> matchData = new List<MatchDto>();
+            if(matchlist_entry.Matches.Count > 7)
+            {
+                for(int i = 0; i < 7; i++)
+                {
+                    long gameId = matchlist_entry.Matches[i].GameId;
+                    MatchDto match_entry = await matchlist_handler.GetMatch(gameId.ToString());
+                    matchData.Add(match_entry);
+                }            
+            }
+
+            List<Queues> queueData = await matchlist_handler.GetQueues();
+
+            
+            if (matchlist_handler.ErrorMsg != "")
+            {
+                Show_Notification(matchlist_handler.ErrorMsg);
+                return;
+            }
+
+            if (matchlist_entry == null)
+            {
+                Show_Notification("No match history to display");
+                return;
+            }
+
+            viewProfile.MatchlistEntry = matchlist_entry;
+            viewProfile.MatchEntries = matchData;
+            viewProfile.AllQueuesList = queueData;
+
+
 
             LeaderboardsHandler lb_handler = new LeaderboardsHandler(viewProfile.Region);
             List<LeagueEntryDTO> lb = await lb_handler.GetChallengerRanking();
@@ -159,24 +161,11 @@ namespace SummonMe
                 return;
             }
 
+            viewProfile.ChallengerRanking = lb;
+
             Console.WriteLine("top1 challenger");
             Console.WriteLine(lb[0].LeaguePoints);
             Console.WriteLine(lb[0].SummonerName);
-
-            Console.WriteLine("summoner name, region");
-            Console.WriteLine(viewProfile.SummonerName);
-            Console.WriteLine(viewProfile.Region);
-            
-            Console.WriteLine("name, level, revisiondate(seconds), special id");
-            Console.WriteLine(summoner.Name);
-            Console.WriteLine(summoner.SummonerLevel);
-            Console.WriteLine(summoner.RevisionDate);
-            Console.WriteLine(summoner.Puuid);
-            Console.WriteLine(summoner.Id);
-
-
-            Console.WriteLine("champion with most mastery");
-            Console.WriteLine(championNames[0]);
 
             MenuBar.Visibility = Visibility.Visible;
             ChampionButton.Foreground = Brushes.MediumPurple;
@@ -202,15 +191,20 @@ namespace SummonMe
             ChampionButton.Foreground = Brushes.MediumPurple;
             MatchButton.Foreground = Brushes.Purple;
             LiveButton.Foreground = Brushes.MediumPurple;
-            Main.Content = new MatchHistory(viewProfile);
+            Main.Content = new MatchHistory(viewProfile, fullChampionNames);
         }
         private void Champion_Click(object sender, RoutedEventArgs e)
         {
             GeneralButton.Foreground = Brushes.MediumPurple;
             MatchButton.Foreground = Brushes.MediumPurple;
             ChampionButton.Foreground = Brushes.Purple;
-            LiveButton.Foreground = Brushes.MediumPurple;
+            LiveButton.Foreground = Brushes.MediumPurple;  
             Main.Content = new ChampionMastery(viewProfile);
+        }
+
+        void Page_LoadComplete(object sender, EventArgs e)
+        {
+            return;
         }
 
         private void Live_Click(object sender, RoutedEventArgs e)
@@ -219,17 +213,7 @@ namespace SummonMe
             MatchButton.Foreground = Brushes.MediumPurple;
             ChampionButton.Foreground = Brushes.MediumPurple;
             LiveButton.Foreground = Brushes.Purple;
-
-            if (viewProfile.CurrentGameEntry == null)
-            {
-                Show_Notification("No current game to display", false);
-                return;
-            }
-            else
-            {
-                Main.Content = new CurrentGame(viewProfile);
-            }
-
+            Main.Content = new Leaderboard(viewProfile);
         }
 
         private void Show_Notification(string err_msg, bool hide = true)

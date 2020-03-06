@@ -55,14 +55,6 @@ namespace SummonMe.View
             set { summonerEntry = value; NotifyPropertyChanged("SummonerEntry"); }
         }
 
-        private CurrentGameInfo currentGameEntry;
-
-        public CurrentGameInfo CurrentGameEntry 
-        {
-            get { return currentGameEntry; }
-            set { currentGameEntry = value; NotifyPropertyChanged("CurrentGameInfo"); }
-        }
-
         private List<ChampionMasteryDTO> championMasteryEntry;
         public List<ChampionMasteryDTO> ChampionMasteryEntry
         {
@@ -105,6 +97,30 @@ namespace SummonMe.View
             set { winrate = value; NotifyPropertyChanged("Winrate"); }
 
         }
+
+        private List<MatchDto> matchEntries;
+        public List<MatchDto> MatchEntries
+        {
+            get { return matchEntries; }
+            set { matchEntries = value; NotifyPropertyChanged("MatchEntries"); }
+
+        }
+
+        private List<Queues> allQueuesList;
+        public List<Queues> AllQueuesList
+        {
+            get { return allQueuesList; }
+            set { allQueuesList = value; NotifyPropertyChanged("AllQueuesList"); }
+
+        }
+
+        public List<LeagueEntryDTO> challengerRanking;
+        public List<LeagueEntryDTO> ChallengerRanking
+        {
+            get { return challengerRanking; }
+            set { challengerRanking = value; NotifyPropertyChanged("ChallengerRanking"); }
+        }
+
 
     }
 

@@ -15,6 +15,12 @@
       Title="MatchHistory">
 
     <Grid>
-        <TextBlock Text="match history" />
+        <StackPanel Name="spMatchHistory" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <StackPanel.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Margin" Value="-20"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
     </Grid>
 </Page>
