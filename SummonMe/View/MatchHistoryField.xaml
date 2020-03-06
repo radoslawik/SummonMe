@@ -30,15 +30,16 @@
             </Border.BorderBrush>
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.6,0.9" StartPoint="0.5,0">
-                    <GradientStop Color="MediumPurple" Offset="0.08"/>
-                    <GradientStop Color="#FFEBEFFA" Offset="3"/>
+                    <GradientStop Color="Purple" Offset="-0.5"/>
+                    <GradientStop Color="MediumPurple" Offset="0.4"/>
+                    <GradientStop Color="#FFEBEFFA" Offset="1.2"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
         <StackPanel Orientation="Vertical" Margin="40" HorizontalAlignment="Center">
             <TextBlock Name="tbChampName" Text="NAME" FontSize="15" TextAlignment="Center" Margin="-5 0 0 0">
                 <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="2" Direction="0" Color="Black" BlurRadius="2"/>
+                    <DropShadowEffect ShadowDepth="1" Direction="0" Color="Purple" BlurRadius="5"/>
                 </TextBlock.Effect>
             </TextBlock>
             <Border Name="bChampIcon" Height="80" Width="80" CornerRadius="40" BorderBrush="Purple" BorderThickness="1" />

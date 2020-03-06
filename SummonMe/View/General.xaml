@@ -28,8 +28,9 @@
             </Border.BorderBrush>
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.6,0.9" StartPoint="0.5,0">
-                    <GradientStop Color="MediumPurple" Offset="0.08"/>
-                    <GradientStop Color="#FFEBEFFA" Offset="3"/>
+                    <GradientStop Color="Purple" Offset="-1"/>
+                    <GradientStop Color="MediumPurple" Offset="0.3"/>
+                    <GradientStop Color="#FFEBEFFA" Offset="2"/>
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel Margin="5" Orientation="Horizontal" >
