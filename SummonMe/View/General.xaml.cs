@@ -35,7 +35,10 @@ namespace SummonMe.View
             if (viewManager.LeagueEntry.MiniSeries != null)
                 Badges.Children.Add(new Badge("SERIES", MaterialDesignThemes.Wpf.PackIconKind.SmileyCool));
             if (viewManager.LeagueEntry.Tier.Equals("Unranked"))
-                Badges.Children.Add(new Badge("AMATEUR", MaterialDesignThemes.Wpf.PackIconKind.BookOpenPageVariant));
+                if (viewManager.SummonerEntry.SummonerLevel < 30)
+                    Badges.Children.Add(new Badge("AMATEUR", MaterialDesignThemes.Wpf.PackIconKind.BookOpenPageVariant));
+                else
+                    Badges.Children.Add(new Badge("NEWBIE", MaterialDesignThemes.Wpf.PackIconKind.BookOpenPageVariant));
         }
 
     }

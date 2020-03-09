@@ -46,7 +46,6 @@ namespace SummonMe
             {
                 viewProfile.LeagueEntry = null;
                 Show_Notification("Please provide correct summoner name and/or region");
-                Console.WriteLine("Provide correct summoner name and/or region");
                 return;
             }
             Show_Notification("Loading...");

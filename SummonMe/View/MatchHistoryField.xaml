@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SummonMe.View"
       mc:Ignorable="d"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      TextElement.Foreground="LightGray"
+      TextElement.Foreground="Purple"
       Background="{DynamicResource MaterialDesignPaper}"
       TextElement.FontWeight="Medium"
       TextElement.FontSize="14"
@@ -37,21 +37,21 @@
             </Border.Background>
         </Border>
         <StackPanel Orientation="Vertical" Margin="40" HorizontalAlignment="Center">
-            <TextBlock Name="tbChampName" Text="NAME" FontSize="15" TextAlignment="Center" Margin="-5 0 0 0">
+            <TextBlock Name="tbChampName" Foreground="LightGray" Text="NAME" FontSize="15" TextAlignment="Center" Margin="-5 0 0 0">
                 <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="1" Direction="0" Color="Purple" BlurRadius="5"/>
+                    <DropShadowEffect ShadowDepth="0" Direction="0" Color="Purple" BlurRadius="5"/>
                 </TextBlock.Effect>
             </TextBlock>
             <Border Name="bChampIcon" Height="80" Width="80" CornerRadius="40" BorderBrush="Purple" BorderThickness="1" />
             <Border Name="bPosIcon" Height="30" Width="30" CornerRadius="40" BorderBrush="Purple" BorderThickness="0" Margin="-90 -30 -30 -30" />
-            <TextBlock Text="MAP" FontSize="8" TextAlignment="Center" Margin="0 10 0 0"/>
+            <TextBlock Text="MAP" Foreground="LightGray" FontSize="8" TextAlignment="Center" Margin="0 10 0 0"/>
             <TextBlock Name="tbMapName" Text="MAP NAME" FontSize="10" TextAlignment="Center" />
-            <TextBlock Text="PLAYED" FontSize="8" TextAlignment="Center" Margin="0 7 0 0"/>
+            <TextBlock Text="PLAYED" Foreground="LightGray" FontSize="8" TextAlignment="Center" Margin="0 7 0 0"/>
             <TextBlock Name="tbPlayedWhen" Text="PLAYED WHEN" FontSize="10" TextAlignment="Center" />
-            <TextBlock Text="GAME DURATION" FontSize="8" TextAlignment="Center" Margin="0 7 0 0"/>
+            <TextBlock Text="GAME DURATION" Foreground="LightGray"  FontSize="8" TextAlignment="Center" Margin="0 7 0 0"/>
             <TextBlock Name="tbGameDuration" Text="GAME DURATION" FontSize="10" TextAlignment="Center" />
-            <TextBlock Text="K/D/A" FontSize="8" FontWeight="Bold" Foreground="Purple" TextAlignment="Center" Margin="0 7 0 0"/>
-            <TextBlock Name="tbKDA" Text="0 / 0 / 0" FontWeight="Bold" Foreground="Purple" FontSize="12" TextAlignment="Center" />
+            <TextBlock Text="K/D/A" FontSize="8" FontWeight="Bold" TextAlignment="Center" Margin="0 7 0 0"/>
+            <TextBlock Name="tbKDA" Text="0 / 0 / 0" FontWeight="Bold" FontSize="12" TextAlignment="Center" />
             <TextBlock Name="tbResult" Text="WIN" Foreground="Yellow" FontSize="20" Margin="0 10 0 0" TextAlignment="Center">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="1" Direction="0" Color="LightGray" BlurRadius="10"/>

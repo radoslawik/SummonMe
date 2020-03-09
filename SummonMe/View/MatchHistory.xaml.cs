@@ -36,9 +36,18 @@ namespace SummonMe.View
                 int queueId = viewManager.MatchlistEntry.Matches[i].Queue;
                 Queues gameQueue = viewManager.AllQueuesList.Where(p => p.QueueId == queueId).FirstOrDefault();
                 string mapName = gameQueue.Map;
-                int hoursAgo = (int)(439858 - (viewManager.MatchlistEntry.Matches[i].Timestamp) / 3600000);
-                string playedWhen = (Math.Round(hoursAgo / 24.0)).ToString() + " day(s) ago";
-
+                DateTime startDate = DateTimeOffset.FromUnixTimeMilliseconds(viewManager.MatchlistEntry.Matches[i].Timestamp).UtcDateTime;
+                int daysAgo = (DateTime.Now - startDate).Days;
+                string playedWhen = "";
+                if (daysAgo < 1)
+                {
+                    playedWhen = (DateTime.Now - startDate).Hours.ToString() + " hour(s) ago";
+                }
+                else
+                {
+                    playedWhen = daysAgo.ToString() + " day(s) ago";
+                }         
+                
                 long gameId = viewManager.MatchlistEntry.Matches[i].GameId;
                 long gameDurationSec = viewManager.MatchEntries[i].GameDuration;
                 int minutes = (int)(gameDurationSec / 60);
