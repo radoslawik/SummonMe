@@ -8,7 +8,7 @@ using SummonMe.Models;
 
 namespace SummonMe.View
 {
-    public class ViewManager : INotifyPropertyChanged
+    public class BaseModelView : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string info)
@@ -121,6 +121,7 @@ namespace SummonMe.View
             set { challengerRanking = value; NotifyPropertyChanged("ChallengerRanking"); }
         }
 
+        public Dictionary<string, string> FullChampionNames { get; set; }
 
     }
 

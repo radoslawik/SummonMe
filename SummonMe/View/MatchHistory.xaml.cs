@@ -21,7 +21,7 @@ namespace SummonMe.View
     /// </summary>
     public partial class MatchHistory : Page
     {
-        public MatchHistory(ViewManager viewManager, Dictionary<string, string> champNamesDict)
+        public MatchHistory(BaseModelView viewManager)
         {
 
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace SummonMe.View
             for(int i = 0; i < viewManager.MatchEntries.Count; i++)
             {
                 int champId = viewManager.MatchlistEntry.Matches[i].Champion;
-                string champName = champNamesDict[champId.ToString()];
+                string champName = viewManager.FullChampionNames[champId.ToString()];
                 string posName = viewManager.MatchlistEntry.Matches[i].Lane;
                 string roleName = viewManager.MatchlistEntry.Matches[i].Role;
                 int queueId = viewManager.MatchlistEntry.Matches[i].Queue;

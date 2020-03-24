@@ -13,6 +13,7 @@ namespace SummonMe.API
         private string Key { get; set; }
         private string Region { get; set; }
         public string ErrorMsg = "";
+        static readonly HttpClient client = new HttpClient();
 
         public ApiHandler() { }
         public ApiHandler(string region)
@@ -28,7 +29,6 @@ namespace SummonMe.API
             // Call asynchronous network methods in a try/catch block to handle exceptions.
             try
             {
-                var client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync(URL);
                 response.EnsureSuccessStatusCode();
                 responseBody = await response.Content.ReadAsStringAsync();
@@ -37,7 +37,7 @@ namespace SummonMe.API
 
                 Console.WriteLine(response.StatusCode);
             }
-            catch (HttpRequestException e)
+            catch (Exception e)
             {
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);

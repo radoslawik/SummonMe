@@ -20,7 +20,7 @@ namespace SummonMe.View
     /// </summary>
     public partial class General : Page
     {
-        public General(ViewManager viewManager)
+        public General(BaseModelView viewManager)
         {
 
             InitializeComponent();

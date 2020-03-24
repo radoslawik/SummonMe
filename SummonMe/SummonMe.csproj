@@ -126,7 +126,7 @@
     <Compile Include="View\MatchHistoryField.xaml.cs">
       <DependentUpon>MatchHistoryField.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewManager.cs" />
+    <Compile Include="ViewModels\BaseModelView.cs" />
     <Page Include="View\Badge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

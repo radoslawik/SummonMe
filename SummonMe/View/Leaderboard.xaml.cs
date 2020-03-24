@@ -20,7 +20,7 @@ namespace SummonMe.View
     /// </summary>
     public partial class Leaderboard : Page
     {
-        public Leaderboard(ViewManager viewManager)
+        public Leaderboard(BaseModelView viewManager)
         {
             InitializeComponent();
             this.DataContext = viewManager;

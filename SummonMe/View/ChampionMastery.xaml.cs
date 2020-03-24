@@ -20,7 +20,7 @@ namespace SummonMe.View
     /// </summary>
     public partial class ChampionMastery : Page
     {
-        public ChampionMastery(ViewManager viewManager)
+        public ChampionMastery(BaseModelView viewManager)
         {
 
             InitializeComponent();

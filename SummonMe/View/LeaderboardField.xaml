@@ -49,11 +49,11 @@
             </Border.Background>
         </Border>
         <StackPanel Orientation="Horizontal" Margin="30 5 5 5" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Name="tbName" Width="150"  Text="PLAYER" FontSize="16" FontWeight="Bold" TextAlignment="Center">
-                <TextBlock.Effect>
+            <TextBox Background="Transparent" BorderThickness="0" IsReadOnly="True" Name="tbName" Width="150"  Text="PLAYER" FontSize="16" FontWeight="Bold" TextAlignment="Center">
+                <TextBox.Effect>
                     <DropShadowEffect ShadowDepth="0" Direction="0" Color="Purple" BlurRadius="5"/>
-                </TextBlock.Effect>
-            </TextBlock>
+                </TextBox.Effect>
+            </TextBox>
             <TextBlock Name="tbWins" Text="WINS: 1000" Foreground="DarkGreen" Margin="10 0 10 0" VerticalAlignment="Center"/>
             <TextBlock Name="tbLosses" Text="LOSSES: 1000" Foreground="DarkRed" Margin="10 0 10 0" VerticalAlignment="Center" />
             <TextBlock Name="tbPoints" Text="LEAGUE POINTS: 1000" Foreground="Purple" Margin="10 0 10 0" VerticalAlignment="Center"/>
