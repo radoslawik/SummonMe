@@ -6,5 +6,8 @@ packages
 /SummonMe/bin
 /SummonMe/obj
 /SummonMe/SummonMe.csproj.user
+/SummonMeTests/bin
+/SummonMeTests/obj
+/TestResults
 # exclude txt files
 *.txt
