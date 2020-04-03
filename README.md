@@ -3,11 +3,13 @@
 
 ### Requirements
 - Visual Studio 2019 with C# .NET tools
-- Newtonsoft JSON package
 - Riot Games Developer API key
+- [Newtonsoft Json.NET](https://github.com/JamesNK/Newtonsoft.Json) package
+- [LiveCharts.Wpf](https://github.com/Live-Charts/Live-Charts) package
+- [MaterialDesignThemes](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) package
 
 ### Installation Tips
-- To install [Newtonsoft](https://github.com/JamesNK/Newtonsoft.Json) you can use NuGet Package Manager. You can find the tutorial [here](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio).
+- To install dependencies you can use NuGet Package Manager or NuGet Package Console. Here you can find the tutorials for [Newtonsoft](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio), for [LiveCharts](https://lvcharts.net/App/examples/v1/wpf/Install) and for [MaterialDesignThemes](http://materialdesigninxaml.net/).
 - To get your developer key you have to visit [Riot Games Developer](https://developer.riotgames.com/) website.
 **Warning:** To get your key you may be asked to download the game, to play the tutorial and to confirm your email address.
 - To be able to use the application you have to manually create file `API/YourDeveloperKey.txt` and paste your developer key. Make sure that file you have created is copied into output directory.
