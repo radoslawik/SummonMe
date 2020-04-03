@@ -32,11 +32,13 @@ namespace SummonMe.API
         {
             Dictionary<string, string> champNames = new Dictionary<string, string>();
 
-            foreach (KeyValuePair<string, Champion> kvp in data)
+            if (data != null)
             {
-                champNames.Add(kvp.Value.Key, kvp.Value.Id);
+                foreach (KeyValuePair<string, Champion> kvp in data)
+                {
+                    champNames.Add(kvp.Value.Key, kvp.Value.Id);
+                }
             }
-
             return champNames;
         }
     }
