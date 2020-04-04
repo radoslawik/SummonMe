@@ -102,6 +102,10 @@ namespace SummonMe
             viewProfile.LeagueEntry = league_entry;
             viewProfile.EmblemPath = "pack://application:,,,/Assets/Emblem/Emblem_" + league_entry.Tier + ".png";
 
+            champion_data_handler = new ChampionInfoHandler();
+            ChampionInfo champData = await champion_data_handler.GetChampionData();
+            viewProfile.FullChampionNames = champion_data_handler.ParseChampionData(champData.Data);
+
             MenuBar.Visibility = Visibility.Visible;
             Main.Content = new General(viewProfile);
         }
@@ -180,10 +184,6 @@ namespace SummonMe
             }
             viewProfile.ChampionMasteryEntry = most_points_champ;
 
-
-            champion_data_handler = new ChampionInfoHandler();
-            ChampionInfo champData = await champion_data_handler.GetChampionData();
-            viewProfile.FullChampionNames = champion_data_handler.ParseChampionData(champData.Data);
             List<string> championNames = new List<string>();
             for (int i = 0; i < most_points_champ.Count; i++)
             {
